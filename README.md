@@ -39,7 +39,7 @@ This is the section where you mention all the different tests that can be perfor
 As I have mentioned before, you never know who is going to read your readme. So it is better to provide information on how to use your project. A step-by-step guide is best suited for this purpose. It is better to explain steps as detailed as possible because it might be a beginner who is reading it.
 
 <!-- Contribute -->
-    <!-- NOTE: Pick Name Display Style -->
+<!-- NOTE: Pick Name Display Style -->
 Allen, Jessica Taylor Allen
 Johnson, Jacob Johnson
 Patel, Priti Patel
