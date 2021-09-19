@@ -39,13 +39,16 @@ This is the section where you mention all the different tests that can be perfor
 As I have mentioned before, you never know who is going to read your readme. So it is better to provide information on how to use your project. A step-by-step guide is best suited for this purpose. It is better to explain steps as detailed as possible because it might be a beginner who is reading it.
 
 <!-- Contribute -->
-<!-- NOTE: Pick Name Display Style -->
+<!-- NOTE: Pick a Name Display Style (Alpha Order) -->
 Allen, Jessica Taylor Allen
 Johnson, Jacob Johnson
 Patel, Priti Patel
 Ramierz, Marisol Ramierz
 
 <!-- Credits -->
+
+Logo photo: https://stock.adobe.com/images/logo-hands-caring-pets-veterinary-business-card/243967615
+
 Giving proper credit is most important. Mention any links/repos which helped you or inspired you to build this project. It can be a blog, another open source project, or just people who have contributed in building this project.
 
 <!-- License -->
