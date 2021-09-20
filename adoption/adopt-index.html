@@ -70,12 +70,57 @@
               <div class="card-content white-text">
                 <span class="card-title">Preferences</span>
                   <div class="input-field col s12">
-                    <input type="text" id="autocomplete-input" class="autocomplete">
-                    <label for="">City, State or Zip Code</label>
-                    <label for="autocomplete-input">Location</label>
+                    <form action="">
+                      <input type="text" id="autocomplete-input" class="autocomplete">
+                      <label for="input-field">City, State or Zip Code</label>
+                      <label for="autocomplete-input">Location</label>
+                    </form>
                   </div>
-                  <p>
-                    <form action="#">
+
+                  <!-- Age and Size -->
+                    <div class="input-field col s12">
+                      <label class="black-text"> Browser Select</label>
+                      <select class="browser-default">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                      </select>
+                      <!-- <select>
+                        <option value="" disabled selected>Choose Pet's Age</option>
+                        <option value="1">Baby</option>
+                        <option value="2">Young</option>
+                        <option value="3">Adult</option>
+                        <option value="4">Senior</option>
+                      </select>
+                      <label>Age</label> -->
+                    </div>
+                    <div class="input-field col s12">
+                      <select>
+                        <option value="" disabled selected>Choose Pet's Size</option>
+                        <option value="1">Small</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Large</option>
+                        <option value="4">X-Large</option>
+                      </select>
+                      <label>Size</label>
+                    </div>
+                    <div>
+                      <form action="#">
+                        <p>
+                          <label>
+                            <label for="">Gender:</label>
+                            <input class="with-gap" name="group3" type="radio" checked />
+                            <span>Female</span>
+                          </label>
+                          <label>
+                            <input class="with-gap" name="group3" type="radio" checked />
+                            <span>Male</span>
+                          </label>
+                        </p>
+                      </form>
+                    </div>
+                    <!-- <form action="#">
                       <p>
                         <label>
                           <label for="">Gender:</label>
@@ -87,8 +132,7 @@
                           <span>Male</span>
                         </label>
                       </p>
-                    </form>
-                  </p>
+                    </form> -->
                 </div>
               <div class="card-action">
                 <!-- Sumbit -->
