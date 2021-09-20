@@ -8,12 +8,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="css\style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link rel="stylesheet" href="css\adopt.css">
+    <link rel="stylesheet" href="pet.css">
 </head>
 
 <body>
 
     <!-- Nav Bar & Modile Nav Bar -->
-
+<!-- 
     <nav class="white" role="navigation">
         <div class="nav-wrapper container">
           <a id="logo-container" href="#" class="brand-logo">Logo</a>
@@ -50,7 +52,7 @@
       </div>
     </div>
     <div class="parallax"><img src="images\toy-back-nonpix.png"></div>
-  </div>
+  </div> -->
   
   <!-- Heading -->
 
@@ -66,45 +68,30 @@
         <!-- Pet Pref Card -->
         <div class="row">
           <div class="col s12 m4">
-            <div class="card green darken-1">
+            <div class="card purple">
               <div class="card-content white-text">
                 <span class="card-title">Preferences</span>
-                  <div class="input-field col s12">
+                  <div class="input-field">
                     <form action="">
-                      <input type="text" id="autocomplete-input" class="autocomplete">
-                      <label for="input-field">City, State or Zip Code</label>
-                      <label for="autocomplete-input">Location</label>
+                      <div class="input-field">
+                        <i class="material-icons prefix">location_on</i>
+                        <input type="text" id="user-city">
+                        <label for="user-city">City, State or Zip Code</label>
+                        <!-- <label for="autocomplete-input">Location</label> -->
+                      </div>
+                      <div class="input-field">
+                        <select>
+                          <option disabled selected>Choose Pet's Age</option>
+                          <option>Baby</option>
+                          <option>Young</option>
+                          <option>Adult</option>
+                          <option>Senior</option>
+                        </select>
+                        <label class="lable">Age</label>
+                      </div>
                     </form>
                   </div>
-
-                  <!-- Age and Size -->
-                    <div class="input-field col s12">
-                      <label class="black-text"> Browser Select</label>
-                      <select class="browser-default">
-                        <option value="" disabled selected>Choose your option</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                      </select>
-                      <!-- <select>
-                        <option value="" disabled selected>Choose Pet's Age</option>
-                        <option value="1">Baby</option>
-                        <option value="2">Young</option>
-                        <option value="3">Adult</option>
-                        <option value="4">Senior</option>
-                      </select>
-                      <label>Age</label> -->
-                    </div>
-                    <div class="input-field col s12">
-                      <select>
-                        <option value="" disabled selected>Choose Pet's Size</option>
-                        <option value="1">Small</option>
-                        <option value="2">Medium</option>
-                        <option value="3">Large</option>
-                        <option value="4">X-Large</option>
-                      </select>
-                      <label>Size</label>
-                    </div>
+                  <br><br>
                     <div>
                       <form action="#">
                         <p>
@@ -142,10 +129,10 @@
                 <!-- <a href="#">Sumbit</a> -->
 
                 <!-- Clear -->
-                <button class="btn waves-effect waves-light" type="reset" name="reset">Cancle
+                <button class="btn waves-effect waves-light" type="reset" name="reset">Cancel
                   <i class="material-icons right">send</i>
                 </button>
-                <!-- <a href="#">Cancle</a> -->
+                <!-- <a href="#">Cancel</a> -->
               </div>
             </div>
           </div>
@@ -154,10 +141,10 @@
             <div class="col s12 m4">
               <div class="card">
                 <div class="card-image">
-                  <img src="images\Kol.jpg">
-                  <span class="card-title">Card Title</span>
-                  <a class="btn-floating halfway-fab waves-effect waves-light left red"><i class="material-icons">❌</i></a>
-                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                  <img id="petPhoto" src="images\Kol.jpg" alt="pictore of dog">
+                  <span class="card-title">Love</span>
+                  <a class="btn-floating halfway-fab waves-effect waves-light left "><i class="material-icons">cancel</i></a>
+                  <a class="btn-floating halfway-fab waves-effect waves-light "><i class="material-icons">favorite</i></a>
                 </div>
                 <div class="card-content">
                   <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
@@ -168,31 +155,47 @@
               <!-- Loved Pet -->
 
           <div class="col s12 m4" id="scroll-card">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <div></div>
-             <!-- <div id="introduction" class="section scrollspy"></div> -->
-              <span class="card-title">Card Title</span>
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+              <span class="card-title">Meet</span>
               <!-- <input type="appDate" id="date" class="datepicker">
               <label for="date">Choose an appoitment date</label> -->
                 <p>Content</p>
-                <div class="columns is-12 m-0 pt-3 pl-3" id="scroll-box-holder">
+
+                <ul class="collection with-header">
+                  <li class="collection-header"><h4>First Names</h4></li>
+                  <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">web_assest</i></a></div></li>
+                  <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                  <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                  <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                </ul>
+
+                <ul class="collection">
+                  <li class="collection-item avatar">
+                    <img src="images\Kol.jpg" alt="" class="circle">
+                    <span class="title">Title</span>
+                    <p> Pet Name <br>
+                    </p>
+                    <a class="btn-floating waves-effect waves-light "><i class="fas fa-calender">&#128197</i></a>
+                    <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+                  </li>
+                </ul>
+                <!-- <div class="columns is-12 m-0 pt-3 pl-3" id="scroll-box-holder">
                   <div class="column m-0 p-0 is-12">
-                      <!-- <div class="columns m-0">
+                      <div class="columns m-0">
                           <div class="column is-12 my-3 is-align-items-center" id="pastLikesHeader">
                           </div>
                       </div>
-                      <div class="columns m-0"> -->
+                      <div class="columns m-0">
                           <div class="column is-12 m-0 p-0 is-flex is-justify-content-center" id="pastLikesTitle">
                           </div>
                       </div>
                       <div class="columns m-0" id="scroll-box">
                           <div class="column is-12" id="pastLikesDiv">
-              </div>
-              <p>I am a very simple card. I am good at containing small bits of information.
+                </div> -->
+                  <p>I am a very simple card. I am good at containing small bits of information.
               I am convenient because I require little markup to use effectively.</p>
-            </div>
-            
+              </div>
             </div>
           </div>
             
@@ -204,6 +207,173 @@
       </div> 
   </div>
   
+  <div class="columns">
+    <!-- <div class="column is-4-fullhd is-6-tablet is-full-touch p-0"> <!-- left side div -->
+        <div class="modal is-clipped is-active" id="settingsModal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title">Preferences</p>
+                <button class="delete" id="hideModalDeleteBtn" aria-label="close"></button>
+              </header>
+              <section class="modal-card-body">
+                <!-- Content ... -->
+                <div>
+                    <div style="display: block;">
+                        <section class="tab-content"></section>
+                        <div class="field">
+                            <label class="label">City, State or Zip Code Search: </label>
+                            <div class="control">
+                            <input id = "user-city" class="input" type="text" placeholder="Text input">
+                            </div>
+                        </div>
+                    <div class="field">
+                        <label class="label">Age:</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id = "user-age">
+                                <option>Baby</option>
+                                <option>Young</option>
+                                <option>Adult</option>
+                                <option>Senior</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Size:</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id = "user-size">
+                                <option>Small</option>
+                                <option>Medium</option>
+                                <option>Large</option>
+                                <option>XLarge</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <label class="label">Gender:</label>
+                            <label class="checkbox">
+                                <input id = "user-gender-male" type="checkbox"> Male 
+                            </label>
+                            <label class="checkbox">
+                                <input id = "user-gender-female" type="checkbox"> Female 
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              </section>
+              <footer class="modal-card-foot">
+                <button class="button is-success" id="searchButton">Save changes</button>
+                <button class="button" id="hideModalCancelBtn">Cancel</button>
+              </footer>
+            </div>
+        </div> -->
+        <div class="columns is-12 m-0 pt-3 pl-3" id="scroll-box-holder">
+            <div class="column m-0 p-0 is-12">
+                <div class="columns m-0">
+                    <div class="column is-12 my-3 is-align-items-center" id="pastLikesHeader">
+                        <figure class="image is-64x64">
+                            <img class="is-64x64" src="./assets/images/logo/petseeker_logo_sm.png" alt="logo of pet seeker pawprint in magnifying glass">
+                        </figure>
+                        <span class="pl-4">
+                            Pet Seeker
+                        </span>
+                    </div>
+                </div>
+                <div class="columns m-0">
+                    <div class="column is-12 m-0 p-0 is-flex is-justify-content-center" id="pastLikesTitle">
+                        Liked Pets
+                    </div>
+                </div>
+                <div class="columns m-0" id="scroll-box">
+                    <div class="column is-12" id="pastLikesDiv">
+                        <!-- DYNAMIC CONTENT GOES HERE -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column is-8-fullhd is-6-tablet is-full-mobile m-0 p-6" id="main-content"> <!-- main content -->
+        <div class="columns is-mobile is-full-tablet"> <!-- hide and settings buttons -->
+            <div class="column is-half-mobile is-flex is-justify-content-flex-start p-0"> <!-- hide likes -->
+                <button class="button hideAndSettings" id="showHideBtn" style="display: none;">
+                    <!-- <span class="material-icons md-48">
+                        west
+                    </span> -->
+                </button>
+            </div>
+            <div class="column is-half-mobile is-flex is-justify-content-flex-end p-0"> <!-- settings -->
+                <button class="button hideAndSettings p-0" id="showModal">
+                    <span class="material-icons md-48">
+                        settings
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="columns is-vcentered is-centered pt-3" id="mainCardHolder">
+            <div class="column">
+                <div class="columns">
+                    <div class="column is-12-tablet is-6-widescreen image is-16by9">
+                        <img id="petPhoto" src="./assets/images/jack.jpg" alt="picture of dog">
+                    </div>
+                    <div class="column is-12-tablet is-6-widescreen pr-6" id="right-side-of-card">
+                        <div class="columns">
+                            <div class="column is-12 p-0 is-flex is-align-items-flex-end">
+                                <div class="content pb-2">
+                                    <span class="card-title" id="petName">
+                                        Boskco
+                                    </span>
+                                    <span class="card-title">
+                                    ,
+                                    </span>
+                                    <span class="card-title material-icons" id="petGender">
+                                        female
+                                    </span>
+                                    <br>
+                                    <span class="card-subtitle has-tooltip-arrow has-tooltipl-multiline" id="petBreed" data-tooltip="">
+                                        Chihuahua
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="columns">
+                            <div class="column is-12 p-0">
+                                <div class="content pt-2">
+                                    <span class="card-text" id="petAge">Age: Young</span>
+                                    <br>
+                                    <span class="card-text" id="petSize">Size: Large</span>
+                                    <br>
+                                    <span class="card-text" id="petDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae maxime doloribus</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns is-mobile is-justify-content-center is-align-content-center pt-5"> <!-- like and dislike buttons -->
+            <div class="column is-half-mobile is-flex is-justify-content-flex-end py-0 px-4"> <!-- dislike -->
+                <button class="button is-48x48 px-1 py-1 likeAndDislikeBtn" id="dislikeBtn">
+                    <span class="material-icons md-48">
+                        not_interested
+                    </span>
+                </button>
+            </div>
+            <div class="column is-half-mobile is-flex is-justify-content-start py-0 px-4"> <!-- like -->
+                <button class="button is-48x48 px-1 py-1 likeAndDislikeBtn" id="likeBtn">
+                    <span class="material-icons md-48">
+                        favorite
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -262,6 +432,8 @@
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="js\materialize.js"></script>
 <script src="js\init.js"></script>
+<script src="/script.js"></script>
+<script src="/adopt.js"></script>
 
 </body>
 </html>
