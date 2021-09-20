@@ -38,8 +38,6 @@
 
   <!-- 1st Parallax Container w/ Toy Background -->
 
-
-
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
@@ -52,56 +50,108 @@
       </div>
     </div>
     <div class="parallax"><img src="images\toy-back-nonpix.png"></div>
-</div>
+  </div>
+  
+  <!-- Heading -->
 
-    <!-- Heading -->
-
-   <div class="container">
-        <div class="section">
-          <div class="row">
-            <div class="col s12 center">
-              <h3><i class="mdi-content-send brown-text"></i></h3>
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 center">
+           <h3><i class="mdi-content-send brown-text"></i></h3>
               <h4>Open for Info</h4>
+        </div>
+          <br><br>
+
+        <!-- Pet Pref Card -->
+        <div class="row">
+          <div class="col s12 m4">
+            <div class="card green darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">Preferences</span>
+                  <div class="input-field col s12">
+                    <input type="text" id="autocomplete-input" class="autocomplete">
+                    <label for="">City, State or Zip Code</label>
+                    <label for="autocomplete-input">Location</label>
+                  </div>
+                  <p>
+                    <form action="#">
+                      <p>
+                        <label>
+                          <label for="">Gender:</label>
+                          <input class="with-gap" name="group3" type="radio" checked />
+                          <span>Female</span>
+                        </label>
+                        <label>
+                          <input class="with-gap" name="group3" type="radio" checked />
+                          <span>Male</span>
+                        </label>
+                      </p>
+                    </form>
+                  </p>
+                </div>
+              <div class="card-action">
+                <!-- Sumbit -->
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                </button>
+                <!-- <a href="#">Sumbit</a> -->
+
+                <!-- Clear -->
+                <button class="btn waves-effect waves-light" type="reset" name="reset">Cancle
+                  <i class="material-icons right">send</i>
+                </button>
+                <!-- <a href="#">Cancle</a> -->
+              </div>
             </div>
-            <br>
-
-            
-            <!-- Pet Pref Card -->
-
-            <div class="row">
-              <div class="col s12 m4">
-                <div class="card blue-grey darken-1">
-                  <div class="card-content white-text">
-                    <span class="card-title">Card Title</span>
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-                  </div>
-                  <div class="card-action">
-                    <a href="#">This is a link</a>
-                    <a href="#">This is a link</a>
-                  </div>
+          </div>
+          
+             <!-- Pick a Pet -->
+            <div class="col s12 m4">
+              <div class="card">
+                <div class="card-image">
+                  <img src="images\Kol.jpg">
+                  <span class="card-title">Card Title</span>
+                  <a class="btn-floating halfway-fab waves-effect waves-light left red"><i class="material-icons">❌</i></a>
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                  <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                 </div>
               </div>
-
-              <!-- Pick a Pet -->
-
-        <div class="col s12 m4">
-          <!-- <p>s12 m4</p> -->
-          <div class="card">
-          <div class="card-image">
-            <img src="images\Kol.jpg">
-            <span class="card-title">Card Title</span>
-            <a class="btn-floating halfway-fab waves-effect waves-light left red"><i class="material-icons">❌</i></a>
-            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-          </div>
-          <div class="card-content">
-            <p>Pet info (this will change with each pet)</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Loved Pet -->
             </div>
+      
+              <!-- Loved Pet -->
+
+          <div class="col s12 m4" id="scroll-card">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <div></div>
+             <!-- <div id="introduction" class="section scrollspy"></div> -->
+              <span class="card-title">Card Title</span>
+              <!-- <input type="appDate" id="date" class="datepicker">
+              <label for="date">Choose an appoitment date</label> -->
+                <p>Content</p>
+                <div class="columns is-12 m-0 pt-3 pl-3" id="scroll-box-holder">
+                  <div class="column m-0 p-0 is-12">
+                      <!-- <div class="columns m-0">
+                          <div class="column is-12 my-3 is-align-items-center" id="pastLikesHeader">
+                          </div>
+                      </div>
+                      <div class="columns m-0"> -->
+                          <div class="column is-12 m-0 p-0 is-flex is-justify-content-center" id="pastLikesTitle">
+                          </div>
+                      </div>
+                      <div class="columns m-0" id="scroll-box">
+                          <div class="column is-12" id="pastLikesDiv">
+              </div>
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            
+            </div>
+          </div>
+            
 
 
           </div>
