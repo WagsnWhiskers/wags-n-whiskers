@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="css\style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    
     <link rel="stylesheet" href="css\adopt.css">
     <link rel="stylesheet" href="pet.css">
 </head>
@@ -15,7 +16,7 @@
 <body>
 
     <!-- Nav Bar & Modile Nav Bar -->
-<!-- 
+
     <nav class="white" role="navigation">
         <div class="nav-wrapper container">
           <a id="logo-container" href="#" class="brand-logo">Logo</a>
@@ -68,7 +69,7 @@
         <!-- Pet Pref Card -->
         <div class="row">
           <div class="col s12 m4">
-            <div class="card purple">
+            <div class="card deep-purple">
               <div class="card-content white-text">
                 <span class="card-title">Preferences</span>
                   <div class="input-field">
@@ -78,48 +79,44 @@
                         <input type="text" id="user-city">
                         <label for="user-city">City, State or Zip Code</label>
                         <!-- <label for="autocomplete-input">Location</label> -->
-                      </div>
-                      <div class="input-field">
-                        <select>
-                          <option disabled selected>Choose Pet's Age</option>
-                          <option>Baby</option>
-                          <option>Young</option>
-                          <option>Adult</option>
+                      </div>   
+                      <div class="row">
+                        <select class="browser-default" id="user-age">
+                          <option value=""disabled selected>Choose Pet's Age</option>
+                          <option value="">Baby</option>
+                          <option value="">Young</option>
+                          <option value>Adult</option>
                           <option>Senior</option>
                         </select>
                         <label class="lable">Age</label>
                       </div>
-                    </form>
-                  </div>
-                  <br><br>
-                    <div>
-                      <form action="#">
+                      <br>
+                      <div class="row">
+                        <select class="browser-default" id="user-size">
+                          <option value=""disabled selected>Choose Pet's Size</option>
+                          <option value="">Small</option>
+                          <option value="">Medium</option>
+                          <option value>Large</option>
+                          <option>X-Large</option>
+                        </select>
+                        <label class="lable">Size</label>
+                      </div>
+                      <div class="row">
                         <p>
                           <label>
-                            <label for="">Gender:</label>
-                            <input class="with-gap" name="group3" type="radio" checked />
+                            <label for=""></label>
+                            <span style="font-size: 20px;">Grender:</span>
+                            <input class="with-gap" id="user-gender-female" name="group3" type="radio" checked />
                             <span>Female</span>
                           </label>
                           <label>
-                            <input class="with-gap" name="group3" type="radio" checked />
+                            <input class="with-gap" id="user-gender-male" name="group3" type="radio" checked />
                             <span>Male</span>
                           </label>
                         </p>
-                      </form>
-                    </div>
-                    <!-- <form action="#">
-                      <p>
-                        <label>
-                          <label for="">Gender:</label>
-                          <input class="with-gap" name="group3" type="radio" checked />
-                          <span>Female</span>
-                        </label>
-                        <label>
-                          <input class="with-gap" name="group3" type="radio" checked />
-                          <span>Male</span>
-                        </label>
-                      </p>
-                    </form> -->
+                      </div>
+                    </form>
+                  </div>
                 </div>
               <div class="card-action">
                 <!-- Sumbit -->
@@ -155,7 +152,7 @@
               <!-- Loved Pet -->
 
           <div class="col s12 m4" id="scroll-card">
-            <div class="card blue-grey darken-1">
+            <div class="card deep-purple">
               <div class="card-content white-text">
               <span class="card-title">Meet</span>
               <!-- <input type="appDate" id="date" class="datepicker">
@@ -227,7 +224,7 @@
                             <input id = "user-city" class="input" type="text" placeholder="Text input">
                             </div>
                         </div>
-                    <div class="field">
+                    <!-- <div class="field">
                         <label class="label">Age:</label>
                         <div class="control">
                             <div class="select">
@@ -239,7 +236,7 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="field">
                         <label class="label">Size:</label>
                         <div class="control">
@@ -405,6 +402,13 @@
     </div>
   </div> -->
 
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ Compiled and minified CSS -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+Compiled and minified JavaScript -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   -->
+
   <!-- Footer -->
 
   <footer class="page-footer teal lighten-1">
@@ -434,6 +438,12 @@
 <script src="js\init.js"></script>
 <script src="/script.js"></script>
 <script src="/adopt.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script>
+   $(document).ready(function(){
+    $('select').formSelect();
+  });
 
 </body>
 </html>
