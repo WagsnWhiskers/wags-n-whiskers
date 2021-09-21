@@ -108,3 +108,11 @@ body {
   .input-field .prefix.active {
     color: #000;
   }
+
+  .state{
+      width: 30%;
+  }
+
+  .container{
+      background-image:url() ;
+  }
