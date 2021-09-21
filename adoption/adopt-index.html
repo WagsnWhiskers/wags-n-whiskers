@@ -147,6 +147,14 @@
                     <br>
                   <span class="card-subtitle has-tooltip-arrow has-tooltipl-multiline" id="petBreed" data-tooltip="">Dachshund</span>
                 </div>
+                <div class="content discription">
+                  <span class="card-text" id="petAge">Age: Young</span>
+                    <br>
+                  <span class="card-text" id="petSize">Size: Small</span>
+                    <br>
+                  <span class="card-text" id="petDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae maxime doloribus</span>
+                    <br>
+                </div>
               </div>
             </div>
       
@@ -204,176 +212,6 @@
         </div>
       </div> 
   </div>
-  
-  <div class="columns">
-    <!-- <div class="column is-4-fullhd is-6-tablet is-full-touch p-0"> <!-- left side div -->
-        <div class="modal is-clipped is-active" id="settingsModal">
-            <div class="modal-background"></div>
-            <div class="modal-card">
-              <header class="modal-card-head">
-                <p class="modal-card-title">Preferences</p>
-                <button class="delete" id="hideModalDeleteBtn" aria-label="close"></button>
-              </header>
-              <section class="modal-card-body">
-                <!-- Content ... -->
-                <div>
-                    <div style="display: block;">
-                        <section class="tab-content"></section>
-                        <div class="field">
-                            <label class="label">City, State or Zip Code Search: </label>
-                            <div class="control">
-                            <input id = "user-city" class="input" type="text" placeholder="Text input">
-                            </div>
-                        </div>
-                    <!-- <div class="field">
-                        <label class="label">Age:</label>
-                        <div class="control">
-                            <div class="select">
-                                <select id = "user-age">
-                                <option>Baby</option>
-                                <option>Young</option>
-                                <option>Adult</option>
-                                <option>Senior</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div> -->
-                    <div class="field">
-                        <label class="label">Size:</label>
-                        <div class="control">
-                            <div class="select">
-                                <select id = "user-size">
-                                <option>Small</option>
-                                <option>Medium</option>
-                                <option>Large</option>
-                                <option>XLarge</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="control">
-                            <label class="label">Gender:</label>
-                            <label class="checkbox">
-                                <input id = "user-gender-male" type="checkbox"> Male 
-                            </label>
-                            <label class="checkbox">
-                                <input id = "user-gender-female" type="checkbox"> Female 
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-              </section>
-              <footer class="modal-card-foot">
-                <button class="button is-success" id="searchButton">Save changes</button>
-                <button class="button" id="hideModalCancelBtn">Cancel</button>
-              </footer>
-            </div>
-        </div> -->
-        <div class="columns is-12 m-0 pt-3 pl-3" id="scroll-box-holder">
-            <div class="column m-0 p-0 is-12">
-                <div class="columns m-0">
-                    <div class="column is-12 my-3 is-align-items-center" id="pastLikesHeader">
-                        <figure class="image is-64x64">
-                            <img class="is-64x64" src="./assets/images/logo/petseeker_logo_sm.png" alt="logo of pet seeker pawprint in magnifying glass">
-                        </figure>
-                        <span class="pl-4">
-                            Pet Seeker
-                        </span>
-                    </div>
-                </div>
-                <div class="columns m-0">
-                    <div class="column is-12 m-0 p-0 is-flex is-justify-content-center" id="pastLikesTitle">
-                        Liked Pets
-                    </div>
-                </div>
-                <div class="columns m-0" id="scroll-box">
-                    <div class="column is-12" id="pastLikesDiv">
-                        <!-- DYNAMIC CONTENT GOES HERE -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="column is-8-fullhd is-6-tablet is-full-mobile m-0 p-6" id="main-content"> <!-- main content -->
-        <div class="columns is-mobile is-full-tablet"> <!-- hide and settings buttons -->
-            <div class="column is-half-mobile is-flex is-justify-content-flex-start p-0"> <!-- hide likes -->
-                <button class="button hideAndSettings" id="showHideBtn" style="display: none;">
-                    <!-- <span class="material-icons md-48">
-                        west
-                    </span> -->
-                </button>
-            </div>
-            <div class="column is-half-mobile is-flex is-justify-content-flex-end p-0"> <!-- settings -->
-                <button class="button hideAndSettings p-0" id="showModal">
-                    <span class="material-icons md-48">
-                        settings
-                    </span>
-                </button>
-            </div>
-        </div>
-        <div class="columns is-vcentered is-centered pt-3" id="mainCardHolder">
-            <div class="column">
-                <div class="columns">
-                    <div class="column is-12-tablet is-6-widescreen image is-16by9">
-                        <img id="petPhoto" src="./assets/images/jack.jpg" alt="picture of dog">
-                    </div>
-                    <div class="column is-12-tablet is-6-widescreen pr-6" id="right-side-of-card">
-                        <div class="columns">
-                            <div class="column is-12 p-0 is-flex is-align-items-flex-end">
-                                <div class="content pb-2">
-                                    <span class="card-title" id="petName">
-                                        Boskco
-                                    </span>
-                                    <span class="card-title">
-                                    ,
-                                    </span>
-                                    <span class="card-title material-icons" id="petGender">
-                                        female
-                                    </span>
-                                    <br>
-                                    <span class="card-subtitle has-tooltip-arrow has-tooltipl-multiline" id="petBreed" data-tooltip="">
-                                        Chihuahua
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="columns">
-                            <div class="column is-12 p-0">
-                                <div class="content pt-2">
-                                    <span class="card-text" id="petAge">Age: Young</span>
-                                    <br>
-                                    <span class="card-text" id="petSize">Size: Large</span>
-                                    <br>
-                                    <span class="card-text" id="petDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae maxime doloribus</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="columns is-mobile is-justify-content-center is-align-content-center pt-5"> <!-- like and dislike buttons -->
-            <div class="column is-half-mobile is-flex is-justify-content-flex-end py-0 px-4"> <!-- dislike -->
-                <button class="button is-48x48 px-1 py-1 likeAndDislikeBtn" id="dislikeBtn">
-                    <span class="material-icons md-48">
-                        not_interested
-                    </span>
-                </button>
-            </div>
-            <div class="column is-half-mobile is-flex is-justify-content-start py-0 px-4"> <!-- like -->
-                <button class="button is-48x48 px-1 py-1 likeAndDislikeBtn" id="likeBtn">
-                    <span class="material-icons md-48">
-                        favorite
-                    </span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 
   <!-- 2nd Parallax Container w/ "Background 2" -->
 
