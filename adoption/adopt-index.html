@@ -72,6 +72,7 @@
             <div class="card deep-purple">
               <div class="card-content white-text">
                 <span class="card-title">Preferences</span>
+                  <p style="font-size: 17px;"> Please use the feilds to help narrow your search for a new furry friend.</p>
                   <div class="input-field">
                     <form action="">
                       <div class="input-field">
@@ -105,7 +106,7 @@
                         <p>
                           <label>
                             <label for=""></label>
-                            <span style="font-size: 20px;">Grender:</span>
+                            <span style="font-size: 17px;">Grender:</span>
                             <input class="with-gap" id="user-gender-female" name="group3" type="radio" checked />
                             <span>Female</span>
                           </label>
@@ -120,14 +121,11 @@
                 </div>
               <div class="card-action">
                 <!-- Sumbit -->
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                  <i class="material-icons right">send</i>
+                <button class="btn waves-effect waves-light" id="searchButton" type="submit" name="action">Search
                 </button>
                 <!-- <a href="#">Sumbit</a> -->
-
                 <!-- Clear -->
-                <button class="btn waves-effect waves-light" type="reset" name="reset">Cancel
-                  <i class="material-icons right">send</i>
+                <button class="btn waves-effect waves-light" id="cancelBtn" type="reset" name="reset">Cancel
                 </button>
                 <!-- <a href="#">Cancel</a> -->
               </div>
@@ -139,12 +137,15 @@
               <div class="card">
                 <div class="card-image">
                   <img id="petPhoto" src="images\Kol.jpg" alt="pictore of dog">
-                  <span class="card-title">Love</span>
+                  <span style="font-size: 45px; font-weight: 400;" class="card-title" id="petName">Kol</span>
                   <a class="btn-floating halfway-fab waves-effect waves-light left "><i class="material-icons">cancel</i></a>
                   <a class="btn-floating halfway-fab waves-effect waves-light "><i class="material-icons">favorite</i></a>
                 </div>
                 <div class="card-content">
-                  <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                  <!-- <span class="card-title"></span> -->
+                  <span class="card-title material-icons" id="petGender">male</span>
+                    <br>
+                  <span class="card-subtitle has-tooltip-arrow has-tooltipl-multiline" id="petBreed" data-tooltip="">Dachshund</span>
                 </div>
               </div>
             </div>
