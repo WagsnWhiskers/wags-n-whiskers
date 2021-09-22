@@ -30,6 +30,9 @@ This is where you try to compress your project and make the reader understand wh
 If your project needs installation of certain software or configurations to the system. Do mention it in this section as it helps a lot for the reader to use your project. The steps mentioned should be precise and explanatory.  If possible, you can add links that can help them better understand how to configure/install the necessary files or softwares.
 
 <!-- API reference -->
+
+Pet Finder
+
 If your project is small, then we can add the reference docs in the readme. For larger projects, it is better to provide links to where the API reference documentation is documented.
 
 <!-- Tests -->
@@ -48,6 +51,7 @@ Ramierz, Marisol Ramierz
 <!-- Credits -->
 
 Logo photo: https://stock.adobe.com/images/logo-hands-caring-pets-veterinary-business-card/243967615
+
 
 Giving proper credit is most important. Mention any links/repos which helped you or inspired you to build this project. It can be a blog, another open source project, or just people who have contributed in building this project.
 
