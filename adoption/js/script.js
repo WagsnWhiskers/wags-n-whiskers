@@ -29,9 +29,11 @@ var petFinderClient = new petfinder.Client({ //petfinder api object (called in 2
     secret: petFinderSecret //private secret key (required)
 });
 
+
+
 // Fetch Request
 // Will need to create a refresh token of some sort // Further Research
-var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjM4YTRkYzc3YzAxNmRmOWE2N2U1Y2QyNjE4Y2FkY2U1ODNjNmUxNjFlMzllOTA4MDgzZmE0MjM0YjI2MWZhYzI3YzczZjRjODZmMmJhZTJkIiwiaWF0IjoxNjMyMzM0NjI1LCJuYmYiOjE2MzIzMzQ2MjUsImV4cCI6MTYzMjMzODIyNSwic3ViIjoiIiwic2NvcGVzIjpbXX0.PBBLqbNUqsQzdW7TlcCOEGilpHesddQW459B4A9geCLMG54HDkMaw-Cdvf7OYqJnp2CnAByKP2m1psyBOmcVgdevNX1v649h57lZ5xP4f1epen6A30pFyQXgBNkL1HbnfZnf9tObjz6bumyB7YjULwrpccrRaVm-kslOJgUfb8M0iKi0xsgrMxJwr7SPiRkQQFstc4cmuqsbnuvfrHqHB51Yw9dP7jjaORNTJa_mOKGR7syGZktmrEg85c0tfHWpPnM0Tj-rZdQCJ8AQ7pNq8GaL048BiC0IcJ9ivTK9byGBa9l_oi-1aWNz_If9eQA0TMxwsxpmDOiUgxehwmnldg"
+var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjlhN2NlYjQ4ZjRjM2ZkNTAyOWQzNGJmNDJjZWY2Nzg2YWIwNTQwYmZiZmZiMjAzZGQ3MjU1NTBjYzJjNTBiYzk5YmY0ZmFkNzVhYWQ4YWZlIiwiaWF0IjoxNjMyMzM4NDAwLCJuYmYiOjE2MzIzMzg0MDAsImV4cCI6MTYzMjM0MjAwMCwic3ViIjoiIiwic2NvcGVzIjpbXX0.LVHZwe55nuLy69ScMgswbhuckJrA_gW9B92Q3SwR2soKbsEjD8DWHHvuuXCQfU6grejC4QmkekqgacMCWqwOU80LYJHmc-moiQzYhfK3_KA2RaACMYty-1UE0kgKmdx4ewAPG22abjn1KI_5wgEiJEQAov7jIzJpoYz5YK83BvQ-LntxbKpZjgtP2fyuolOi2hlMYyw9i-FD0_md7ugx1cOgIj8SZrnctckijCRZdq4SskZFsWqy6jzKnw6rufZ7geI-lDxXTVEIE7viUj_J75n-egReFzBH5VlQxgs-N0pg7WHjst9HhivVg_ihbC9tRb2X-2pcaE-tLVXQTQj8zg"
 
 const url = "https://api.petfinder.com/v2/animals?type=dog"
 
@@ -42,17 +44,30 @@ const options = {
 }
 
 searchBtnEl.addEventListener("click", function(event) {
-    event.preventDefault();
-
-    if(userCityEl == ""){
-        alert("please blahah")
+    //event.preventDefault();
+    
+    if(userCityEl.value == ""){
+// Tried creating modal to alert the user to enter a value
+        $("#searchButton").after(
+            
+            `<div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>Modal Header</h4>
+              <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+          </div>`)
+        
     }
 
 fetch(url, options)
     .then(response => response.json())
     .then((data) => console.log(data));
-
 })
+
+
 
 
 
@@ -365,3 +380,4 @@ fetch(url, options)
 // }
 
 // init() //calls when page starts up leave at bottom
+
