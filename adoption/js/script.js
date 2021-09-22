@@ -20,6 +20,19 @@ var petFinderClient = new petfinder.Client({ //petfinder api object (called in 2
     secret: petFinderSecret //private secret key (required)
 });
 
+const url = "https://api.petfinder.com/v2/animals"
+
+const options = {
+    headers: {
+        Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjZhNTVhZDZjMmNlZTJlYjJlMGJjNDcwNjg0Njg4NzQ4NGYxZThlZTczNmE3ZTBmNGRiNDA2Zjg3ZjY0NTJmNTJkNzU1ZTA0MzRkMDFkYTQwIiwiaWF0IjoxNjMyMzIxNzgzLCJuYmYiOjE2MzIzMjE3ODMsImV4cCI6MTYzMjMyNTM4Mywic3ViIjoiIiwic2NvcGVzIjpbXX0.N7eDpH0DZSnPGXOlFypXSaGyQdW-AYQMhSInWkJSTbjaRJr8KSFiHOfObIj9jA79zeQhFmEstpQw4acfxUSxFrRhwA-SNv5q5ySMxFGU8dXtAwf0ul3DozzRnuJYY0hXnfXF1yW-hMshWA_VAHbEmkB2hv2udxIklfluwda5goMkjMYEkO8dZIRzWVgBxyC0W6FYYn4vaXeqf4Ge7zPy3dy3Zb7mdyGfdOHERbmVNpLNV044r2aLexU0iyqb4x_ykyo26jAnipWYV0aoG0GeHOmkqCnsz361Pq35YEoOd16X-96DpUSSUukwvZCGwA92oaiqzsC6R3WPPEr7W6XrRQ"
+    }
+}
+
+fetch(url, options)
+    .then(response => response.json())
+    .then((data) => console.log(data));
+
+
 //!TEMP VARIABLES
 var timesApiIsCalled = 0;
 
