@@ -54,4 +54,11 @@ p {
 
 footer.page-footer {
   margin: 0;
+  padding: 40px 35px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  line-height: 1.5;
+  text-align: center;
+  font-size: larger;
 }

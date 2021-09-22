@@ -6,10 +6,6 @@
     --default-white: #ffffff;
 }
 
-footer {
-    max-height: 8vh;
-}
-
 #pastLikesHeader,
 .past-likes {
     display: flex;
