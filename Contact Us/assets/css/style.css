@@ -1,0 +1,133 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+
+.contact {
+  background:#26a69a;
+}
+
+.contact h2 {
+  color: #444;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contact-info > * {
+  flex: 1;
+  margin: 15px;
+}
+
+.contact-info iframe {
+  height: 400px;
+}
+
+.contact-info div {
+  color: white;
+}
+
+.contact-info h3 {
+  color: #444;
+  font-size: 32px;
+}
+
+.contact-info p, .contact-info address {
+  margin: 20px 0;
+  line-height: 1.5;
+  font-size: 16px;
+  font-style: normal;
+}
+
+.contact-form input, .contact-form textarea {
+  border: 1px solid hotpink;
+  display: block;
+  padding: 7px 15px;
+  font-size: 16px;
+  color: #444;
+  width: 100%;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  border-radius: 10px;
+  background-color: rgba(255,255,255, 0.75);
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  background-color: rgba(255,255,255, 1);
+  outline: none;
+}
+
+.contact-form button {
+  width: 100%;
+  border: none;
+  background: #444;
+  color: #26a69a;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.contact-form button:hover {
+  color: #444;
+  background: hotpink;
+}
+
+.contact-info a {
+  color: var(--primary-color);
+}
+
+.section-title {
+  font-size: 45px;
+  border-bottom: 3px solid;
+  color: hotpink;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-align: center;
+  margin: 0 auto 35px auto;
+  width: 50%;
+}
+
+#contact-name {
+  border: 1px solid hotpink;
+  display: block;
+  font-size: 16px;
+  color: #444;
+  width: 100%;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  border-radius: 10px;
+  background-color: rgba(255,255,255, 0.75);
+}
+
+/* Footer Styles */
+
+footer {
+  background: #444;
+  padding: 40px 35px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+footer h2 {
+  color: white;
+  font-size: 30px;
+  margin: 0;
+}
+
+footer div {
+  line-height: 1.5;
+  text-align: right;
+}
+
+footer a {
+  color: #26a69a;
+}
+
