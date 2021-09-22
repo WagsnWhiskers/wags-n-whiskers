@@ -20,6 +20,7 @@ var petFinderClient = new petfinder.Client({ //petfinder api object (called in 2
     secret: petFinderSecret //private secret key (required)
 });
 
+// Fetch Request
 const url = "https://api.petfinder.com/v2/animals"
 
 const options = {
