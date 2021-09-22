@@ -2,6 +2,15 @@ const dogAPIkey = 'c8cd1d33-b825-4d0b-aeca-b35206aec201';
 const petFinderAPIKey = 'RcXYh4mDw2b7Y8vdtikNqfAq4DnlTjpFXttwGIxMBSGQWBJBNx';
 const petFinderSecret = '4zBV99JLvPpoicS8Efy8Bb6TFvDumlTyMylQ4z56';
 
+// Filter Elements
+// City,State,Zip
+var userCityEl = document.getElementById('user-city');
+var userAgeEl = document.getElementById('user-age');
+var userSizeEl = document.getElementById('user-size');
+var userFemaleEl = document.getElementById('user-gender-female');
+var userMaleEl = document.getElementById('user-gender-male');
+
+
 //! HTML ELEMENTS
 var dislikeBtnEl = document.getElementById('dislikeBtn');
 var likeBtnEl = document.getElementById('likeBtn');
@@ -21,20 +30,43 @@ var petFinderClient = new petfinder.Client({ //petfinder api object (called in 2
 });
 
 // Fetch Request
+// Will need to create a refresh token of some sort // Further Research
+var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjM4YTRkYzc3YzAxNmRmOWE2N2U1Y2QyNjE4Y2FkY2U1ODNjNmUxNjFlMzllOTA4MDgzZmE0MjM0YjI2MWZhYzI3YzczZjRjODZmMmJhZTJkIiwiaWF0IjoxNjMyMzM0NjI1LCJuYmYiOjE2MzIzMzQ2MjUsImV4cCI6MTYzMjMzODIyNSwic3ViIjoiIiwic2NvcGVzIjpbXX0.PBBLqbNUqsQzdW7TlcCOEGilpHesddQW459B4A9geCLMG54HDkMaw-Cdvf7OYqJnp2CnAByKP2m1psyBOmcVgdevNX1v649h57lZ5xP4f1epen6A30pFyQXgBNkL1HbnfZnf9tObjz6bumyB7YjULwrpccrRaVm-kslOJgUfb8M0iKi0xsgrMxJwr7SPiRkQQFstc4cmuqsbnuvfrHqHB51Yw9dP7jjaORNTJa_mOKGR7syGZktmrEg85c0tfHWpPnM0Tj-rZdQCJ8AQ7pNq8GaL048BiC0IcJ9ivTK9byGBa9l_oi-1aWNz_If9eQA0TMxwsxpmDOiUgxehwmnldg"
+
 const url = "https://api.petfinder.com/v2/animals"
 
 const options = {
     headers: {
-        Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjZhNTVhZDZjMmNlZTJlYjJlMGJjNDcwNjg0Njg4NzQ4NGYxZThlZTczNmE3ZTBmNGRiNDA2Zjg3ZjY0NTJmNTJkNzU1ZTA0MzRkMDFkYTQwIiwiaWF0IjoxNjMyMzIxNzgzLCJuYmYiOjE2MzIzMjE3ODMsImV4cCI6MTYzMjMyNTM4Mywic3ViIjoiIiwic2NvcGVzIjpbXX0.N7eDpH0DZSnPGXOlFypXSaGyQdW-AYQMhSInWkJSTbjaRJr8KSFiHOfObIj9jA79zeQhFmEstpQw4acfxUSxFrRhwA-SNv5q5ySMxFGU8dXtAwf0ul3DozzRnuJYY0hXnfXF1yW-hMshWA_VAHbEmkB2hv2udxIklfluwda5goMkjMYEkO8dZIRzWVgBxyC0W6FYYn4vaXeqf4Ge7zPy3dy3Zb7mdyGfdOHERbmVNpLNV044r2aLexU0iyqb4x_ykyo26jAnipWYV0aoG0GeHOmkqCnsz361Pq35YEoOd16X-96DpUSSUukwvZCGwA92oaiqzsC6R3WPPEr7W6XrRQ"
+        Authorization: "Bearer " + bearerToken
     }
 }
+
+searchBtnEl.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    if(userCityEl == ''){
+        
+    }
 
 fetch(url, options)
     .then(response => response.json())
     .then((data) => console.log(data));
 
+})
 
-//!TEMP VARIABLES
+
+
+
+
+
+
+
+
+
+
+
+
+    //!TEMP VARIABLES
 var timesApiIsCalled = 0;
 
 //sets up js file when page loads put events and calls in here
