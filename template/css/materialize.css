@@ -4270,7 +4270,6 @@ table span.badge {
 nav {
   color: #fff;
   background-color: #ee6e73;
-  margin
   width: 100%;
   height: 100px;
   line-height: 56px;
@@ -4391,7 +4390,7 @@ nav ul li {
 }
 
 nav ul li.active {
-  background-color: transparent);
+  background-color: transparent;
 }
 
 nav ul a {

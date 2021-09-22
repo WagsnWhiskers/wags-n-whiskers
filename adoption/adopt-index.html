@@ -3,11 +3,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Wags 'N Whiskers</title>
+    <link rel="icon" type="image/x-icon" href="./images/pos-logo (2).jpg">
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="css\style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     
     <link rel="stylesheet" href="css\adopt.css">
     <link rel="stylesheet" href="pet.css">
@@ -49,7 +52,7 @@
         <br><br>
         <h1 class="header center teal-text text-lighten-2"> Wags 'n Whiskers</h1>
         <div class="row center">
-          <h5 class="header col s12 light">Wag 'N Whiskers is helping potional pet adopters find their fur-ever friend.</h5>
+          <h5 class="header col s12 light">Wag 'N Whiskers is helping potential pet adopters find their fur-ever friend.</h5>
         </div>
         <div class="row center">
         </div>
@@ -77,7 +80,7 @@
               <div class="card-content white-text">
                 <span class="card-title">Preferences</span>
                 <br>
-                  <p style="font-size: 17px;"> Please use the feilds to help narrow your search for a new furry friend.</p>
+                  <p style="font-size: 17px;"> Please use the fields to help narrow your search for a new furry friend.</p>
                   <br>
                   <div class="input-field">
                     <form action="">
@@ -113,7 +116,7 @@
                         <p>
                           <label>
                             <label for=""></label>
-                            <span style="font-size: 17px;">Grender:</span>
+                            <span style="font-size: 17px;">Gender:</span>
                             <input class="with-gap" id="user-gender-female" name="group3" type="radio" checked />
                             <span>Female</span>
                           </label>
@@ -128,8 +131,11 @@
                 </div>
               <div class="card-action">
                 <!-- Sumbit -->
-                <button class="btn waves-effect waves-light" id="searchButton" type="submit" name="action">Search
+                <button data-target="modal1" class="btn modal-trigger waves-effect waves-light" id="searchButton" type="submit" name="action">Search
                 </button>
+                
+                
+                <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
                 <!-- <a href="#">Sumbit</a> -->
                 <!-- Clear -->
                 <button class="btn waves-effect waves-light" id="cancelBtn" type="reset" name="reset">Cancel
@@ -226,10 +232,75 @@
   
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     Compiled and minified JavaScript -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
      
 
-   Footer -->
+
+<!-- contact us start -->
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header center ">Find Your Match today!</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">"Get out & Play!"</h5>
+      </div>
+      <br><br>
+    </div>
+  </div>
+  <div class="parallax"><img src="../assets/images/dogcollage.png"></div>
+</div>
+
+
+
+<section id="reach-out" class="contact">
+  <div class="flex-row">
+    <h2 class="section-title secondary-border">
+      Contact Us
+    </h2>
+  </div>
+
+  <div class="contact-info">
+    <div>
+      <h3>Wags 'n Whiskers Adoption</h3>
+      <p>
+        Any questions or concerns? 
+        <br/>
+        Let us know and we would be more than happy to reach out and assist you, Our goal is to help you find your furry best friend! 
+      </p>
+
+      <address>
+        1221 Woof Avenue <br/>
+        Somewhere, Tx <br/>
+        12345<br/>
+        <i class="bi bi-telephone-fill"></i> Phone: 123.WHI.SKER (123.944.7537)<br/>
+        <i class="bi bi-envelope-fill"></i> Email: <a href="mailto:info@wagsnwhiskers.io">info@wagsnwhiskers.io</a>
+      </address>
+      
+    </div>
+
+    <div class="contact-form">
+      <h3>Reach out and we'll get back to you!</h3>
+      <form>
+        <label for="contact-name">Your Name</label>
+        <input type="text" id="contact-name" placeholder="Your Name" />
+    
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" placeholder="Message"></textarea>
+    
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3449.0382255212994!2d-97.3094016844816!3d30.178902019162248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864490563fbbe2f9%3A0x8eb1778cf0567c43!2s225%20Cool%20Water%20Dr%2C%20Bastrop%2C%20TX%2078602!5e0!3m2!1sen!2sus!4v1629174410837!5m2!1sen!2sus" 
+    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+</iframe>
+  </div>
+</section>
+<!-- contact us end -->
+
+
+   <!--Footer -->
 
   <footer class="page-footer teal lighten-1">
     <div class="container">
@@ -237,24 +308,28 @@
         <div class="col l6 s12">
           <h5 class="white-text">Our Team Members</h5>
           <p class="grey-text text-lighten-4">We are a team of college students working on this project.</p>
+        </div>
+
+          <div class="col l3 s12">  
+            <h5 class="white-text">References</h5>
+            <ul>
+              <li><a class="white-text" href="#!">Link 1</a></li>
+              <li><a class="white-text" href="#!">Link 2</a></li>
+            </ul>
+          </div>
 
 
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Recferances</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-          </ul>
-        </div>
+    <div>
+      <h6>❤️ Made with love by Wags 'n Whiskers</h6>
+      <a  class="privacy" href="./privacy-policy.html">Read Our Privacy Policy</a><br/>
+      &copy; 2021 Wags 'n Whiskers
+    </div>
+
+
       </div>
     </div>
   </footer>
 
-
-</body>
-
-</html>
 
  <!-- Script -->
 
@@ -267,3 +342,10 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
  <script src="https://unpkg.com/@petfinder/petfinder-js/dist/petfinder.min.js"></script>
+ <script src="./js/script.js"></script>
+  
+ 
+</body>
+</html>
+
+
