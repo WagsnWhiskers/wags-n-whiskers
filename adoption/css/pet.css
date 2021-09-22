@@ -6,6 +6,16 @@
     --default-white: #ffffff;
 }
 
+footer {
+    display: flex;
+    padding: 40px 35px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    line-height: 1.5;
+    text-align: center;
+}
+
 #pastLikesHeader,
 .past-likes {
     display: flex;
