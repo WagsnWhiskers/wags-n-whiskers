@@ -300,9 +300,9 @@
 }
 
 .page-title {
-    color: #fce138;
+    color: #26a69a;
     display: inline-block;
-    border-bottom: 4px solid #fce138;
+    border-bottom: 4px solid #26a69a;
     padding: 0 80px 15px 70px;
     font-weight: normal;
     font-size: 42px;
@@ -310,7 +310,7 @@
 }
 
 .secondary-content {
-    width: 80%;
+    width: 95%;
     margin: 0 auto;
     color: #024e76;
 }
@@ -334,6 +334,32 @@
     color: #39a6b2;
     margin: 10px 0;
 }
+
+  /* FOOTER STYLES START */
+  footer {
+    background: #26a69a;
+    padding: 40px 35px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  footer h2 {
+    color: white;
+    font-size: 30px;
+    margin: 0;
+  }
+  
+  footer div {
+    line-height: 1.5;
+    text-align: right;
+  }
+  
+  footer a {
+    color: white;
+  }
+
 
 /* @media screen and (min-width: 768px) {
     #petPhoto {
