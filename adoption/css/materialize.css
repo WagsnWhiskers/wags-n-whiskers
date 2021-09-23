@@ -4521,7 +4521,8 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 h1 {
-  font-size: 4.2rem;
+  font-size: 6rem;
+  -webkit-text-stroke: 2px white;
   line-height: 110%;
   margin: 2.8rem 0 1.68rem 0;
 }
@@ -4545,7 +4546,7 @@ h4 {
 }
 
 h5 {
-  font-size: 1.64rem;
+  font-size: 2rem;
   line-height: 110%;
   margin: 1.0933333333rem 0 0.656rem 0;
 }
@@ -4569,7 +4570,7 @@ small {
 }
 
 .light {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .thin {
