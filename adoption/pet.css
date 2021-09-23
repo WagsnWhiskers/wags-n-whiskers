@@ -6,6 +6,33 @@
     --default-white: #ffffff;
 }
 
+/* nav hover */
+nav a {
+    text-decoration: none;
+    color:#1344e6;
+    
+    
+  }
+  
+nav {
+    margin: 7px 0;
+  }
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: right;
+    list-style: none;
+  }
+
+nav ul li a:hover {
+    background: #444;
+    color: #26a69a;
+    border-radius: 15px;
+    text-shadow: none;
+  }
+
 #pastLikesHeader,
 .past-likes {
     display: flex;
