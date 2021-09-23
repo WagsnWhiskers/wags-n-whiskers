@@ -73,7 +73,7 @@ searchBtnEl.addEventListener("click", function(event) {
     event.preventDefault();
     petGenders();
 
-    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjVkNDI2NjM4MmZmZGFlMmM4OWU1Mzg1YjE1MjM4N2I1MmYzYjdmODk1YmYwNmU0Y2RlNTU5NjBjOTlkY2JiYzdiNjBiMzYzZTE1YTk0M2UwIiwiaWF0IjoxNjMyNDE2MjM4LCJuYmYiOjE2MzI0MTYyMzgsImV4cCI6MTYzMjQxOTgzOCwic3ViIjoiIiwic2NvcGVzIjpbXX0.B0l4yHoDDMC29TrLFEA3HeuQKxjb_ndmYwcfJdaqy-NBEBXME1MBRFXvSLtEljjmNxAxT7JnyVCkg6E-S_vs-OJfXTBD6skKOcQtszMHIdao4qC3Jt4SDz7hH3MlllUhvoMHbws-mWqlxTGWSE0XMEgru3LnYyI-n9nV8FxmZtcWVMQXP-GzKS-OJ0wdIxvuz-Eu_vNs8jRB9cXJWoDSpGvLne9R4yEfnzlkpBmXyp7Thk5kKSocADI-CO2xcMlXYBD__nwEz3F9HAkCiijfKPC1s1ydeFnW2NPoJDDSaIB9gT5NcWvj9HEctBCaG-_kNffrKriLhFSVJeDIpwhjmg"
+    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6Ijg1YmUxN2VjODQ2MmJiMTlkNGFjZTIzMTAwYWYwNjVmODlmYmZhZWE0MmIwYWQwYmE5ZTk1NDQ3Mzg0ZTJhZWZmMDAzMWZkMzg1ZmVmZTMxIiwiaWF0IjoxNjMyNDIzNzM5LCJuYmYiOjE2MzI0MjM3MzksImV4cCI6MTYzMjQyNzMzOSwic3ViIjoiIiwic2NvcGVzIjpbXX0.TZsvGEfktadxIABcscBAmOa3MKXEb3OiaIRmL-Zezzpm8F3vmWzi2kv7wWkIY-AjRVhZuMhc1vKIlQLb6OSlfnyMfkcD4LZ2fn8iPQn7BJskDyX6xdkxY_nKVEhQ-OYPobsvEV-AyFdJ-lkwYrwJk131uKvESMIjmXJH3RG240nVO3lmQeAx2H3VVi_DvjADulBIMVYs14Ubp9t7kIS_R7aXqr5xUB2wR0aywcQAcMGrjCkhPnliSSi2Ho_gUHwS3SXWJS8cmpWB-IDg66idoB8O8TA1loEK9m3X32gdKhA0ZWglyJcQZNV8cMqEeSg93VmYQ-_YMRnvP_omjnU2sg"
 
 const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value + "&location=" + userCityEl.value + "&size=" + userSizeEl.value + "&gender=" + userGenders
 
@@ -82,24 +82,6 @@ const options = {
         Authorization: "Bearer " + bearerToken
     }
 }
-    
-    
-
-//     if(userCityEl.value == ""){
-// // Tried creating modal to alert the user to enter a value
-//         $("#searchButton").after(
-            
-//             `<div id="modal1" class="modal">
-//             <div class="modal-content">
-//               <h4>Modal Header</h4>
-//               <p>A bunch of text</p>
-//             </div>
-//             <div class="modal-footer">
-//               <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-//             </div>
-//           </div>`)
-        
-    // }
 
 fetch(url, options)
     .then(response => response.json())
@@ -111,23 +93,23 @@ fetch(url, options)
 })
 
 var displayDog = function(data) {
-    
-    var i = Math.floor(Math.random() * 20) + 1;
+    var animalLength = data.animals.length;
+    var i = Math.floor(Math.random() * 20) + 1
     console.log(i)
     // console.log(i)
     // var index = ['']
-    // var randomDog = data.animals[Math.floor(Math.random() * userRange)]
+    // var i = data.animals[Math.floor(Math.random() * userRange)]
     // console.log(randomDog)
     
-    var photos = data.animals[i].photos[0].small;
-    var breed = data.animals[i].breeds.primary;
+    var photos = data.animals[i].photos[0].medium;
+    // var breed = data.animals[i].breeds.primary;
     
     if(photos){
 
-        var photos = data.animals[i].photos[0].small;
+    //var photos = data.animals[i].photos[0].small;
     var breed = data.animals[i].breeds.primary;
 
-    displayPhoto.src = data.animals[i].photos[0].medium;
+    displayPhoto.src = photos;
     displayName.textContent = data.animals[i].name;
     displayGender.textContent = data.animals[i].gender;
     displayBreed.textContent = breed;
@@ -136,14 +118,11 @@ var displayDog = function(data) {
     displayDesc.textContent = data.animals[i].description;
 
     dogBreed(breed);
-} 
+} else{
+    displayNextAnimal();
+}
     
- }
-
-// likeBtnEl.addEventListener('click', function() {
-    
- 
-// })
+ } 
 
 var dogBreed = function (breed) {
 
@@ -155,12 +134,40 @@ const options = {
         'x-api-key': dogAPIkey
     }
 }
-
     fetch(dogURL, options)
     .then(response => response.json())
-     .then(data => console.log(data))
+     .then(breedData => {
+        displaySize.textContent = displaySize.textContent + " / " + breedData[0].weight.imperial + "lbs";
+         console.log(breedData)})
+         console.log(displaySize.textContent)
+}
 
-     }
+var displayNextAnimal = function() {
+
+
+
+}
+
+likeBtnEl.addEventListener('click', function() {
+
+    console.log(displayName.textContent)
+ $("#pastLikesDiv").append(
+
+    `<ul class="collection">
+    <li class="collection-item avatar">
+      <img src=${displayPhoto.src} alt="picture of dog" class="circle">
+      <span class="title black-text">${displayName.textContent}</span>
+      <p class="black-text">${displayGender.textContent}<br>${displayAge.textContent}
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons right">grade</i></a>
+    </li>
+    </ul>`
+ )
+
+ })
+    
+dislikeBtnEl.addEventListener('click', function(){}
+)
 
 
 
