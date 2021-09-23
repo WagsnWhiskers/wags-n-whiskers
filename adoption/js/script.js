@@ -111,7 +111,7 @@ var displayDog = function(data) {
     //foreach(i = 1; i < animalLength; i++){
     //var i = Math.floor(Math.random() * 20) + 1
     console.log(i)
-    var photos = data.animals[i].photos[0].medium;
+    var photos = data.animals[i].photos[0].small;
     
     if(photos){
 
@@ -143,6 +143,9 @@ var likeButton = function() {
       <p class="black-text">${displayGender.textContent}<br>${displayAge.textContent}
       </p>
       <a href="#!" class="secondary-content"><i class="material-icons right">grade</i></a>
+      </div class="input-field">
+      <i class="material-icons prefix">book_online</i><label for="appointment">Make an Appointment to Meet</label>
+      <input id="appointment" type="text" class="datepicker" > 
     </li>
     </ul>`
  )
@@ -183,7 +186,9 @@ init();
 
 
 
-
+$(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
 
 
 
