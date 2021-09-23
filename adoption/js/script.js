@@ -22,6 +22,7 @@ var displayGender = document.getElementById('petGender');
 var displayAge = document.getElementById('petAge');
 var displaySize = document.getElementById('petSize');
 var displayDesc = document.getElementById('petDescription');
+var displayPhoto =document.getElementById('petPhoto');
 
 
 //! HTML ELEMENTS
@@ -46,7 +47,7 @@ console.log(petFinderClient)
 
 // Fetch Request
 // Will need to create a refresh token of some sort // Further Research
-var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjM0MzI4ZTlhMDhmZDM3YTg2Y2M3YWE5ZjAyY2M4M2E0NzNkODEyYmRlMTEzMjJiOGNhNjI1MmEyYWM1ZjAyZTgwNWNjMDM3MWZhMjBiNzUyIiwiaWF0IjoxNjMyMzYxODI0LCJuYmYiOjE2MzIzNjE4MjQsImV4cCI6MTYzMjM2NTQyNCwic3ViIjoiIiwic2NvcGVzIjpbXX0.bYr0lGrRNq9ukkZqB-oEyijybReNbI1cU3PKUzjZtwFYdhOHMQbIBN6RGQV4kpsBqf0N1dAq1FCRQFhegOUF-gSWfvXMEyzU__6OpsSwZ1UhcU_bPOyMe6Y0uNzpglxmcF7DbLQ9E3OkP5oPz4UTcS0kod3Sz_AAsAHn0HZbAQSHIs0J9FbpSeKR_pi4mUq2w4GSKMhDaiI-9aLktbEbhpy4OR7xDeQK85tH8OH4c_G-fkAyZNP2OBwqXuAdx07hiWIPNcZZeUZh9hyhyOePFiQRT1g0l1l7kVguEs1cXMuPwPl6OO8rTv7-sg2UfF3-xTtt46CIs4iwrEflVFCgDQ"
+var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjUyZWJhYTc1ZjhlMGNmYTFkZjIzNWUxMWI1YmE2ZjljOTgyNzY2ZjNhNDVmOTBiZDBiNjQyNTljNDRiOWFiYjU4Y2RiZDU4YjEyNGFiYmNmIiwiaWF0IjoxNjMyMzY1NDc4LCJuYmYiOjE2MzIzNjU0NzgsImV4cCI6MTYzMjM2OTA3OCwic3ViIjoiIiwic2NvcGVzIjpbXX0.aSeMNexzkCHg4-khcgjh02Fa6UnJqcUjOdvAcrAYguRNLBeEoekzLGVbsOS8hq4teXsKay-rfBrJqAc-LPPh_wjAUxGwOMUvVsNtziMPEvmP9JIORp2bJ7qTXm6sM8Hj0fLKG6u5tdmHT2Xq6_LaR69Jf9CM2-drW9JM9-I75FAaSBA_PvIG2wjEbiWp-5tT8PexKO9Ca1FhJz6BrFTjF9MCBTO7ynsHArQjHDJULcu3JatYmkKLV1aPvrrTKfghsI8H1r2YBxeVJUF_oItPOi7p6hv_E3Yb0VEA08Ji0bw5aaFVdJj3mFkbAzqdB9y--MIO6Y9V4pU6SDgaSNPN7A"
 
 const url = "https://api.petfinder.com/v2/animals?q=type=dog"
 
@@ -54,11 +55,6 @@ const options = {
     headers: {
         Authorization: "Bearer " + bearerToken
     }
-}
-
-var petAge = function() {
-    var userAges = '';
-    return userAges = "";
 }
 
 var petGenders = function() {
@@ -72,8 +68,9 @@ var petGenders = function() {
     if(userFemaleEl.checked) {
         userGenders = "female";
     }
-
+    console.log(userGenders);
     return userGenders;
+    
 }
 
 
@@ -81,6 +78,9 @@ var petGenders = function() {
 searchBtnEl.addEventListener("click", function(event) {
     //event.preventDefault();
     
+    petGenders();
+    petAge();
+
     if(userCityEl.value == ""){
 // Tried creating modal to alert the user to enter a value
         $("#searchButton").after(
@@ -106,26 +106,35 @@ fetch(url, options)
 })
 
 var displayDog = function(data) {
+    // var index = ['']
+    // var randomDog = data.animals[Math.floor(Math.random() * userRange)]
+    // console.log(randomDog)
+        url.search({
+        //type: 'dog',
+        //variables
+        location: document.getElementById('user-city').value.trim(),
+        distance: userRange, //miles range 1-500 default:100
+        // before: displayPetsBeforeDate(),
+        age: document.getElementById('user-age').value,
+        size: document.getElementById('user-size').value,
+        gender: petGenders(),
+     })
+    //displayPhoto.src = data.randomDog.photos[0].small;
+   // displayName.textContent = randomDog.name;
+  //  displayGender.textContent = randomDog.gender;
+    displayAge.textContent = data.animals[1].age;
+    displaySize.textContent = data.animals[1].size;
+    displayDesc.textContent = data.animals[1].description;
+   
     
-    
-    // url.animals.search({
-    //     status: 'adoptable', //preset to only show adoptable pets
-    //     type: 'dog', //preset to only show dogs so works with dogAPI
-    //     limit: animalArrayLength,
-    //     //variables
-    //     location: document.getElementById('user-city').value.trim(),
-    //     distance: userRange, //miles range 1-500 default:100
-    //     // before: displayPetsBeforeDate(),
-    //     age: document.getElementById('user-age').value,
-    //     size: document.getElementById('user-size').value,
-    //     gender: petGenders(),
-    //  })
-    document.getElementById('petName').textContent = data.animals[1].name;
-    console.log('petName');
     
 }
 
- 
+var dogBreed = function () {
+
+
+
+}
 
 
 
