@@ -57,11 +57,6 @@ const options = {
     }
 }
 
-var petAge = function() {
-    var userAges = '';
-    return userAges = "";
-}
-
 var petGenders = function() {
 
     var userGenders = '';
@@ -73,8 +68,9 @@ var petGenders = function() {
     if(userFemaleEl.checked) {
         userGenders = "female";
     }
-
+    console.log(userGenders);
     return userGenders;
+    
 }
 
 
@@ -82,6 +78,9 @@ var petGenders = function() {
 searchBtnEl.addEventListener("click", function(event) {
     //event.preventDefault();
     
+    petGenders();
+    petAge();
+
     if(userCityEl.value == ""){
 // Tried creating modal to alert the user to enter a value
         $("#searchButton").after(
@@ -107,30 +106,35 @@ fetch(url, options)
 })
 
 var displayDog = function(data) {
-    
-    
-    // url.animals.search({
-    //     status: 'adoptable', //preset to only show adoptable pets
-    //     type: 'dog', //preset to only show dogs so works with dogAPI
-    //     limit: animalArrayLength,
-    //     //variables
-    //     location: document.getElementById('user-city').value.trim(),
-    //     distance: userRange, //miles range 1-500 default:100
-    //     // before: displayPetsBeforeDate(),
-    //     age: document.getElementById('user-age').value,
-    //     size: document.getElementById('user-size').value,
-    //     gender: petGenders(),
-    //  })
-    displayPhoto.src = data.animals[1].photos[0].small;
-    displayName.textContent = data.animals[1].name;
-    displayGender.textContent = data.animals[1].gender;
+    // var index = ['']
+    // var randomDog = data.animals[Math.floor(Math.random() * userRange)]
+    // console.log(randomDog)
+        url.search({
+        //type: 'dog',
+        //variables
+        location: document.getElementById('user-city').value.trim(),
+        distance: userRange, //miles range 1-500 default:100
+        // before: displayPetsBeforeDate(),
+        age: document.getElementById('user-age').value,
+        size: document.getElementById('user-size').value,
+        gender: petGenders(),
+     })
+    //displayPhoto.src = data.randomDog.photos[0].small;
+   // displayName.textContent = randomDog.name;
+  //  displayGender.textContent = randomDog.gender;
     displayAge.textContent = data.animals[1].age;
     displaySize.textContent = data.animals[1].size;
     displayDesc.textContent = data.animals[1].description;
+   
+    
     
 }
 
- 
+var dogBreed = function () {
+
+
+
+}
 
 
 
