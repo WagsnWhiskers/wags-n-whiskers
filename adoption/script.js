@@ -166,7 +166,7 @@ function dogApiCall(petBreed) {
     if (petBreed.primary !== null) {
         fetch(`https://api.thedogapi.com/v1/breeds/search?q=${petBreed.primary}`, {
         headers: {
-            'x-api-key': 'c8cd1d33-b825-4d0b-aeca-b35206aec201'
+            'x-api-key': '6c09c349-113e-4625-8c2d-219f68ebc17d'
         }})
         .then(response => response.json())
         .then(result => {

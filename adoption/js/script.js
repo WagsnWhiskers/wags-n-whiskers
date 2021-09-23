@@ -16,6 +16,12 @@ var userSizeEl = document.getElementById('user-size');
 var userFemaleEl = document.getElementById('user-gender-female');
 var userMaleEl = document.getElementById('user-gender-male');
 
+//Pet Display
+var displayName = document.getElementById('petName');
+var displayGender = document.getElementById('petGender');
+var displayAge = document.getElementById('petAge');
+var displaySize = document.getElementById('petSize');
+var displayDesc = document.getElementById('petDescription');
 
 
 //! HTML ELEMENTS
@@ -40,9 +46,9 @@ console.log(petFinderClient)
 
 // Fetch Request
 // Will need to create a refresh token of some sort // Further Research
-var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6ImQzYjU1MzFiZGM2OTE2YTg4ZWY3NDAxYTFkNDQ1NDVlNDFiZmYxM2FmMzJkM2RkNzY3NjFkMjVjNzBkOGQ0YjEzMjk1MmQwYjM1MzU3ZmM3IiwiaWF0IjoxNjMyMzUwNzM3LCJuYmYiOjE2MzIzNTA3MzcsImV4cCI6MTYzMjM1NDMzNywic3ViIjoiIiwic2NvcGVzIjpbXX0.pZnI1WSxq0zioONkz1NhHpasaVK6cG97lwXdZa51RRMRcKolonA0ScGVjLNsbGPM99a_yXs90RE6OCo0qYV7SS2jG2DtL8ZAoOrgBg2A3S_u_WyS2msvuad30aCnNOtXgaEzvXb6K8Vz8tZ_-cpcj5krXI-eNl8YIuMdU_CfpUHpQthJwtFY8b8LLVqqb55MoV8BZz5j6vJtBSiY-cs12wE6p0M_C8bsda3ClL0dKZCsSXv3mraaQRPTyVscwQDNnU_RJQqPpJgLpBxgyXar9_t8E6LQ3PAm_Eae1Kbz2kOHEouCMTG-D0clZzSYYCIRnD0SwuMfbIoSTv85utkxmA"
+var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjM0MzI4ZTlhMDhmZDM3YTg2Y2M3YWE5ZjAyY2M4M2E0NzNkODEyYmRlMTEzMjJiOGNhNjI1MmEyYWM1ZjAyZTgwNWNjMDM3MWZhMjBiNzUyIiwiaWF0IjoxNjMyMzYxODI0LCJuYmYiOjE2MzIzNjE4MjQsImV4cCI6MTYzMjM2NTQyNCwic3ViIjoiIiwic2NvcGVzIjpbXX0.bYr0lGrRNq9ukkZqB-oEyijybReNbI1cU3PKUzjZtwFYdhOHMQbIBN6RGQV4kpsBqf0N1dAq1FCRQFhegOUF-gSWfvXMEyzU__6OpsSwZ1UhcU_bPOyMe6Y0uNzpglxmcF7DbLQ9E3OkP5oPz4UTcS0kod3Sz_AAsAHn0HZbAQSHIs0J9FbpSeKR_pi4mUq2w4GSKMhDaiI-9aLktbEbhpy4OR7xDeQK85tH8OH4c_G-fkAyZNP2OBwqXuAdx07hiWIPNcZZeUZh9hyhyOePFiQRT1g0l1l7kVguEs1cXMuPwPl6OO8rTv7-sg2UfF3-xTtt46CIs4iwrEflVFCgDQ"
 
-const url = "https://api.petfinder.com/v2/animals?type=dog"
+const url = "https://api.petfinder.com/v2/animals?q=type=dog"
 
 const options = {
     headers: {
@@ -55,7 +61,7 @@ var petAge = function() {
     return userAges = "";
 }
 
-var petSelections = function() {
+var petGenders = function() {
 
     var userGenders = '';
 
@@ -93,9 +99,33 @@ searchBtnEl.addEventListener("click", function(event) {
 
 fetch(url, options)
     .then(response => response.json())
-    .then((data) => console.log(data));
+    .then((data) => {
+     displayDog(data)
+    console.log(data)
+    });
 })
 
+var displayDog = function(data) {
+    
+    
+    // url.animals.search({
+    //     status: 'adoptable', //preset to only show adoptable pets
+    //     type: 'dog', //preset to only show dogs so works with dogAPI
+    //     limit: animalArrayLength,
+    //     //variables
+    //     location: document.getElementById('user-city').value.trim(),
+    //     distance: userRange, //miles range 1-500 default:100
+    //     // before: displayPetsBeforeDate(),
+    //     age: document.getElementById('user-age').value,
+    //     size: document.getElementById('user-size').value,
+    //     gender: petGenders(),
+    //  })
+    document.getElementById('petName').textContent = data.animals[1].name;
+    console.log('petName');
+    
+}
+
+ 
 
 
 
