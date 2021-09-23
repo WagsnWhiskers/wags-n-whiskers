@@ -49,38 +49,39 @@ console.log(petFinderClient)
 // Will need to create a refresh token of some sort // Further Research
 var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjQwODIwYzg3ZjE4NTM0NGQ5ZDQ2ZDdjOWNjYjA4OTA0Y2MwMWQ5MDdhOTRjMjZjMGQ4ZDg2NzA4OTM0MjdiMDM5YTczNjczNDEzNDE5NjM0IiwiaWF0IjoxNjMyMzc0MDEzLCJuYmYiOjE2MzIzNzQwMTMsImV4cCI6MTYzMjM3NzYxMywic3ViIjoiIiwic2NvcGVzIjpbXX0.bx9dDUq6EOGLNEsHoM3I2RrzQ-6gQLhoDS6Dq4cCt_FT330AXl5JiVZtBMnJKNOw0WzegtGGje0ZMJaGEQZXhEGgYfTLggruH3TqbrKojKmw0IcR9y-pLYs4zviK0lWcwrNkLvFHZjbDy2TfN-opTsRZZwbL1H9PnmGIw2jtKFAGubuyHd2_MVwFtbJS6ntzNdJu_ihz9dSfslllPqOUqqDSrgXDv_oFGDRUSKqH5lYtM0zVRa7afphcYeSx1GTXXwWNCxzvzimaraqWEmldw9q0JKeaS5S29Q2aDR7poSRVOODwAW82Etln8hkb1MvuwzKj1iTH9dIG620Be0fwog"
 
-const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value
+//const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value
 
-const options = {
-    headers: {
-        Authorization: "Bearer " + bearerToken
-    }
-}
-
-// var petGenders = function() {
-
-//     var userGenders = '';
-
-//     if(userMaleEl.checked) {
-//         userGenders = 'male';
+// const options = {
+//     headers: {
+//         Authorization: "Bearer " + bearerToken
 //     }
-
-//     if(userFemaleEl.checked) {
-//         userGenders = "female";
-//     }
-//     console.log(userGenders);
-//     return userGenders;
-    
 // }
+var userGenders = '';
+var petGenders = function() {
+
+    
+
+    if(userMaleEl.checked) {
+        userGenders = 'male';
+    }
+
+    if(userFemaleEl.checked) {
+        userGenders = "female";
+    }
+    console.log(userGenders);
+    return userGenders;
+    
+}
 
 console.log(userCityEl)
 //Fetch function
 searchBtnEl.addEventListener("click", function(event) {
     event.preventDefault();
+    petGenders();
 
-    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjQwODIwYzg3ZjE4NTM0NGQ5ZDQ2ZDdjOWNjYjA4OTA0Y2MwMWQ5MDdhOTRjMjZjMGQ4ZDg2NzA4OTM0MjdiMDM5YTczNjczNDEzNDE5NjM0IiwiaWF0IjoxNjMyMzc0MDEzLCJuYmYiOjE2MzIzNzQwMTMsImV4cCI6MTYzMjM3NzYxMywic3ViIjoiIiwic2NvcGVzIjpbXX0.bx9dDUq6EOGLNEsHoM3I2RrzQ-6gQLhoDS6Dq4cCt_FT330AXl5JiVZtBMnJKNOw0WzegtGGje0ZMJaGEQZXhEGgYfTLggruH3TqbrKojKmw0IcR9y-pLYs4zviK0lWcwrNkLvFHZjbDy2TfN-opTsRZZwbL1H9PnmGIw2jtKFAGubuyHd2_MVwFtbJS6ntzNdJu_ihz9dSfslllPqOUqqDSrgXDv_oFGDRUSKqH5lYtM0zVRa7afphcYeSx1GTXXwWNCxzvzimaraqWEmldw9q0JKeaS5S29Q2aDR7poSRVOODwAW82Etln8hkb1MvuwzKj1iTH9dIG620Be0fwog"
+    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjYxNDgzZTBmMzZhNDE2MWQzM2E3YWNjY2M5YWY3Y2ZjYTZiNTcyYjM1YTM1NzQ2MGY3MzBjYjU5YjYyN2QxNDE5ZGFmNzQyYjBhNDdjODBlIiwiaWF0IjoxNjMyMzc4NDMxLCJuYmYiOjE2MzIzNzg0MzEsImV4cCI6MTYzMjM4MjAzMSwic3ViIjoiIiwic2NvcGVzIjpbXX0.rw3OMn44Q9F7jRIbBIn1CkL2512Z-WwnWZxyf9Uir56qGGjgjYQVnyW9IqOb_vNHB-biQ46y5pa83tHDWqfuCNEqsyTzu4oMzyXY_ei3haYGgUMhW7Ukrxbh-NS9BVzIyQOoBpeTTPg1TJyVxuEhryvzds-oZMbgJ3arOzcd2eMgPfKIantY4t66xkjyqM5lN7QMVr8BM5dxn9bdgSqVBWkV-WnetrvzuzrG8slvGb0X2atWbjH2ahzYGhdgUTWrDVtDZyIzFk58UREkk7rh3-XUQ4RAK9UmRfG8VdX-3hEeeEmd-hgQxdQq7_cDEv0-8XA-HypvdklRp9IfcZucWA"
 
-const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value + "&location=" + userCityEl + "&size=" + userSizeEl
+const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value + "&location=" + userCityEl.value + "&size=" + userSizeEl.value + "&gender=" + userGenders
 
 const options = {
     headers: {
@@ -108,41 +109,31 @@ const options = {
 
 fetch(url, options)
     .then(response => response.json())
-     .then(data => console.log(data))
+     .then(data => {
+         displayDog(data)
+         console.log(data)})
     //  displayDog(data)
-    console.log(userAgeEl.value)
+    
 })
 
-// var displayDog = function(data) {
-//     // var index = ['']
-//     // var randomDog = data.animals[Math.floor(Math.random() * userRange)]
-//     // console.log(randomDog)
-//         url.search({
-//         //type: 'dog',
-//         //variables
-//         location: document.getElementById('user-city').value.trim(),
-//         distance: userRange, //miles range 1-500 default:100
-//         // before: displayPetsBeforeDate(),
-//         age: document.getElementById('user-age').value,
-//         size: document.getElementById('user-size').value,
-//         gender: petGenders(),
-//      })
-//     //displayPhoto.src = data.randomDog.photos[0].small;
-//    // displayName.textContent = randomDog.name;
-//   //  displayGender.textContent = randomDog.gender;
-//     displayAge.textContent = data.animals[1].age;
-//     displaySize.textContent = data.animals[1].size;
-//     displayDesc.textContent = data.animals[1].description;
-   
-    
-    
-// }
+var displayDog = function(data) {
+    // var index = ['']
+    // var randomDog = data.animals[Math.floor(Math.random() * userRange)]
+    // console.log(randomDog)
+    displayPhoto.src = data.animals[5].photos[0].small;
+    displayName.textContent = data.animals[5].name;
+    displayGender.textContent = data.animals[5].gender;
+    displayAge.textContent = data.animals[5].age;
+    displaySize.textContent = data.animals[5].size;
+    displayDesc.textContent = data.animals[5].description;
+}
 
 // var dogBreed = function () {
 
 
 
 // }
+petGenders();
 
 
 
