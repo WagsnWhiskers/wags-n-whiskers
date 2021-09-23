@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="css\style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     
     <link rel="stylesheet" href="css\adopt.css">
     <link rel="stylesheet" href="pet.css">
@@ -16,29 +18,31 @@
 
 <body>
 
-      <!-- Nav Bar & Modile Nav Bar -->
+  <!-- Nav Bar & Modile Nav Bar -->
 
-      <nav class="white" role="navigation">
-        <div class="nav-wrapper container">
-          <a id="logo-container" href="#" class="brand-logo"><img class="responsive-img" src="./images/pos-logo (2).jpg" style="width:53; height:53"></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Adoption</a></li>
-            <li><a href="#">Make an Imapact</a></li>
-            <li><a href="#">Education</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-    
-          <ul id="nav-mobile" class="sidenav">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Adoption</a></li>
-            <li><a href="#">Make an Impact</a></li>
-            <li><a href="#">Education</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        </div>
-      </nav>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo"><img class="responsive-img" src="./images/pos-logo (2).jpg" style="width:53; height:53"></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Adoption</a></li>
+        <li><a href="#">Make an Imapact</a></li>
+        <li><a href="#">Education</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Adoption</a></li>
+        <li><a href="#">Make an Impact</a></li>
+        <li><a href="#">Education</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+      
 
   <!-- 1st Parallax Container w/ Toy Background -->
 
@@ -48,7 +52,7 @@
         <br><br>
         <h1 class="header center teal-text text-lighten-2"> Wags 'n Whiskers</h1>
         <div class="row center">
-          <h5 class="header col s12 light">Wag 'N Whiskers is helping potional pet adopters find their fur-ever friend.</h5>
+          <h5 class="header col s12 light">Wag 'N Whiskers is helping potential pet adopters find their fur-ever friend.</h5>
         </div>
         <div class="row center">
         </div>
@@ -76,7 +80,7 @@
               <div class="card-content white-text">
                 <span class="card-title">Preferences</span>
                 <br>
-                  <p style="font-size: 17px;"> Please use the feilds to help narrow your search for a new furry friend.</p>
+                  <p style="font-size: 17px;"> Please use the fields to help narrow your search for a new furry friend.</p>
                   <br>
                   <div class="input-field">
                     <form action="">
@@ -112,7 +116,7 @@
                         <p>
                           <label>
                             <label for=""></label>
-                            <span style="font-size: 17px;">Grender:</span>
+                            <span style="font-size: 17px;">Gender:</span>
                             <input class="with-gap" id="user-gender-female" name="group3" type="radio" checked />
                             <span>Female</span>
                           </label>
@@ -127,8 +131,11 @@
                 </div>
               <div class="card-action">
                 <!-- Sumbit -->
-                <button class="btn waves-effect waves-light" id="searchButton" type="submit" name="action">Search
+                <button data-target="modal1" class="btn modal-trigger waves-effect waves-light" id="searchButton" type="submit" name="action">Search
                 </button>
+                
+                
+                <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
                 <!-- <a href="#">Sumbit</a> -->
                 <!-- Clear -->
                 <button class="btn waves-effect waves-light" id="cancelBtn" type="reset" name="reset">Cancel
@@ -293,7 +300,6 @@
 <!-- contact us end -->
 
 
-
    <!--Footer -->
 
   <footer class="page-footer teal lighten-1">
@@ -307,8 +313,8 @@
           <div class="col l3 s12">  
             <h5 class="white-text">References</h5>
             <ul>
-              <li><a class="white-text" href="#!">Link 1</a></li>
-              <li><a class="white-text" href="#!">Link 2</a></li>
+              <li><a class="white-text" href="#!"><i class="bi bi-link-45deg"></i> Link 1</a></li>
+              <li><a class="white-text" href="#!"><i class="bi bi-link-45deg"></i> Link 2</a></li>
             </ul>
           </div>
 
