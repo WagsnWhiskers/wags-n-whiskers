@@ -86,7 +86,7 @@ var findDog = function() {
     // event.preventDefault();
     petGenders();
 
-    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6ImIzNDdmOTQxNmY3YTE3ODVjZTUxZWZjYTNlMjczY2Y4NGQxNTE4NThkZTA5NGUxYjM4ZGEwNDBhOGUwZDEzYjE0MzEwNjFkOTkxNTgxZWQ0IiwiaWF0IjoxNjMyNDM0ODk1LCJuYmYiOjE2MzI0MzQ4OTUsImV4cCI6MTYzMjQzODQ5NSwic3ViIjoiIiwic2NvcGVzIjpbXX0.MCbBvpaZsIeP5zVTbpzOVc3QKKcr5sxRQbmLbTFbISdcErYpwqqqQGsF02aHy9tiqLNsDtY7Zyq3xQyi-zT9YXVT0z2Z0xBiw5WoPrUOi0EbfXGyHMZZu5x0yuidwaMLgrr0eLxlHRTwnj2ebXvXCF_ibreWdU6xCmzm0-cbIHH5C-Q2vEx6jzvWHsDKTjQB0DADBJfD4xcMwOrG2_FkQisCDLJsmwTsroYw92qmdkJZ7et0v5oYPx3xES6TD-rMYx-8XkTsKMz-x3cv-UFAu16b9Bygb0bhXJAH0Tc4VnYhU6nKiB9grWWHLZyNK93TNZQ1-0BS-3QTDTxxEMFR2w"
+    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjNjYTQwZTkxOWI0MTlmZGNhZjYxYTgzMDc0MWYyMTUzZTVjYjhmZTYyZjRmNjI1MzgzOGJhMGM4MjYyMzE2NTdiZTZhNjlhNTg1YzE0YzdiIiwiaWF0IjoxNjMyNDM5ODc3LCJuYmYiOjE2MzI0Mzk4NzcsImV4cCI6MTYzMjQ0MzQ3Nywic3ViIjoiIiwic2NvcGVzIjpbXX0.bpinnIjTPdp7XWWwSyLIf78VvieCODgDXSZjdIHLvxEZ0asL2mJmvvClP_xPzg1NKI261R5YBUvxM_JXYwgqmVI3dmcACVN7BChrnHomxhvhcU-KMQbi4H2EACTLVUpf_EROiUmHlVXR4xVoxelpdisn95fsll_P05HNzX4CWjALtB5dm8QrW0gsDxxg8Rrm4T4TVGfcH_mxUFShu6i6X3K7xe3u3jCPvm6KTzg0P-c4DyjuaLdXVk5rbbMDWyP2fxlEenTxy9WcC4mqw3_cUtc4oN1K3mqZZ0jdOJ8TO832keg6Xev4vCFUr0PutzzpB-ekb5T3Y1Wtd2vdlAPIbw"
 
 const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value + "&location=" + userCityEl.value + "&size=" + userSizeEl.value + "&gender=" + userGenders
 
@@ -111,7 +111,7 @@ var displayDog = function(data) {
     //foreach(i = 1; i < animalLength; i++){
     //var i = Math.floor(Math.random() * 20) + 1
     console.log(i)
-    var photos = data.animals[i].photos[0].small;
+    var photos = data.animals[i].photos[0].medium;
     
     if(photos){
 
