@@ -74,7 +74,7 @@ searchBtnEl.addEventListener("click", function(event) {
     event.preventDefault();
     petGenders();
 
-    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjJlNGQyMjcwMTBlMmY4NjZjMTA4N2MwNTdiMTUzMTBlOTBjOGEzNjQ5NGUyY2VjMzhkMjhmNDEwODcxY2RhZGRmYmFhZTg3M2FhMTgzZDVkIiwiaWF0IjoxNjMyNDEyNTE1LCJuYmYiOjE2MzI0MTI1MTUsImV4cCI6MTYzMjQxNjExNSwic3ViIjoiIiwic2NvcGVzIjpbXX0.R5d6v0pXGyG1AHmDoduR_mYojSISpka8nfXSeyYB3eAtQLzfGAgxpkYGApqgdS7I-ueirJhYk8NbD_0JR_Dsw8loBM_G0j3wz_sMwT82MsSvLdPSs8_DabeMIY_YOMWdkJ5BVMBvsDFvrzgIkmwZavROYLGdTEacMc79o-a9xsZ6P4ANeGlC27w2RIsUuSA8JurbP-GXlgCxJRvD2BsMYPx4viheuSjVON_-VJa-fnow80MUOH7tockCH2u2a-E-Japp8k_b3-_s4Jm9tQBlYlOlbvJOiagHBFtRzNoAebShvc9r5lWleu6bhkVmxo88Z6XYwogbPSwXY30blt5kCA"
+    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjVkNDI2NjM4MmZmZGFlMmM4OWU1Mzg1YjE1MjM4N2I1MmYzYjdmODk1YmYwNmU0Y2RlNTU5NjBjOTlkY2JiYzdiNjBiMzYzZTE1YTk0M2UwIiwiaWF0IjoxNjMyNDE2MjM4LCJuYmYiOjE2MzI0MTYyMzgsImV4cCI6MTYzMjQxOTgzOCwic3ViIjoiIiwic2NvcGVzIjpbXX0.B0l4yHoDDMC29TrLFEA3HeuQKxjb_ndmYwcfJdaqy-NBEBXME1MBRFXvSLtEljjmNxAxT7JnyVCkg6E-S_vs-OJfXTBD6skKOcQtszMHIdao4qC3Jt4SDz7hH3MlllUhvoMHbws-mWqlxTGWSE0XMEgru3LnYyI-n9nV8FxmZtcWVMQXP-GzKS-OJ0wdIxvuz-Eu_vNs8jRB9cXJWoDSpGvLne9R4yEfnzlkpBmXyp7Thk5kKSocADI-CO2xcMlXYBD__nwEz3F9HAkCiijfKPC1s1ydeFnW2NPoJDDSaIB9gT5NcWvj9HEctBCaG-_kNffrKriLhFSVJeDIpwhjmg"
 
 const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value + "&location=" + userCityEl.value + "&size=" + userSizeEl.value + "&gender=" + userGenders
 
@@ -112,14 +112,17 @@ fetch(url, options)
 })
 
 var displayDog = function(data) {
-
+    
     var i = Math.floor(Math.random() * 20) + 1;
-    console.log(i)
+    // console.log(i)
     // var index = ['']
     // var randomDog = data.animals[Math.floor(Math.random() * userRange)]
     // console.log(randomDog)
     
-    displayPhoto.src = data.animals[i].photos[0].small;
+    var photos = data.animals[i].photos[0].small;
+    
+    if(photos){
+    displayPhoto.src = data.animals[i].photos[0].medium;
     displayName.textContent = data.animals[i].name;
     displayGender.textContent = data.animals[i].gender;
     displayBreed.textContent = data.animals[i].breeds.primary;
@@ -127,15 +130,12 @@ var displayDog = function(data) {
     displaySize.textContent = data.animals[i].size;
     displayDesc.textContent = data.animals[i].description;
 }
+    
 
-likeBtnEl.addEventListener('click', function(){
+}
 
-    console.log('poop')
-    displayDog(data);
-})
 
 dislikeBtnEl.addEventListener('click', function(){
-
     console.log('poop')
 })
 
