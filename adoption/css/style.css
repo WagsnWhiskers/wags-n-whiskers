@@ -62,3 +62,7 @@ footer.page-footer {
   text-align: center;
   font-size: larger;
 }
+
+.datepicker-modal {
+  transform: scale(0.7);
+}

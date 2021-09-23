@@ -22,21 +22,21 @@
 
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo"><img class="responsive-img" src="./images/pos-logo (2).jpg" style="width:53; height:53"></a>
+      <a id="logo-container" href="#" class="brand-logo"><img class="responsive-img" src="./images/pos-logo (2).jpg"></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Adoption</a></li>
-        <li><a href="#">Make an Imapact</a></li>
-        <li><a href="#">Education</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="#adoption">Adoption</a></li>
+        <li><a href="#make-an-impact">Make an Imapact</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#contact-us">Contact Us</a></li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Adoption</a></li>
-        <li><a href="#">Make an Impact</a></li>
-        <li><a href="#">Education</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="#adoption">Adoption</a></li>
+        <li><a href="#make-an-impact">Make an Impact</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#contact-us">Contact Us</a></li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
@@ -68,8 +68,9 @@
     <div class="section">
       <div class="row">
         <div class="col s12 center">
-           <h3><i class="mdi-content-send brown-text"></i></h3>
-              <h4>Open for Info</h4>
+           <h3><i class="mdi-content-send black-text"></i></h3>
+              <h4>Find a Fur-ever Friend</h4>
+              <h5>Let's get started!</h5>
         </div>
           <br><br>
 
@@ -94,10 +95,10 @@
                       <div class="row">
                         <select class="browser-default" id="user-age">
                           <option value=""disabled selected>Choose Pet's Age</option>
-                          <option value="">Baby</option>
-                          <option value="">Young</option>
-                          <option value>Adult</option>
-                          <option>Senior</option>
+                          <option value="baby">Baby</option>
+                          <option value="young">Young</option>
+                          <option value="adult">Adult</option>
+                          <option value="senior">Senior</option>
                         </select>
                         <label class="lable">Age</label>
                       </div>
@@ -105,10 +106,10 @@
                       <div class="row">
                         <select class="browser-default" id="user-size">
                           <option value=""disabled selected>Choose Pet's Size</option>
-                          <option value="">Small</option>
-                          <option value="">Medium</option>
-                          <option value>Large</option>
-                          <option>X-Large</option>
+                          <option value="small">Small</option>
+                          <option value="medium">Medium</option>
+                          <option value="large">Large</option>
+                          <option value="xlarge">X-Large</option>
                         </select>
                         <label class="lable">Size</label>
                       </div>
@@ -161,12 +162,14 @@
                   <span class="card-subtitle has-tooltip-arrow has-tooltipl-multiline" id="petBreed" data-tooltip="">Dachshund</span>
                 </div>
                 <div class="content discription">
+                  <p>
                   <span class="card-text" id="petAge">Age: Young</span>
-                    <br>
+                  <br>
                   <span class="card-text" id="petSize">Size: Small</span>
-                    <br>
+                  <br>
                   <span class="card-text" id="petDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae maxime doloribus</span>
-                    <br>
+                  <br>
+                  </p>
                 </div>
               </div>
             </div>
@@ -176,52 +179,131 @@
           <div class="col s12 m4" id="scroll-card">
             <div class="card deep-purple">
               <div class="card-content white-text">
-              <span class="card-title">Meet</span>
-
-              <!-- <div class="columns is-12 m-0 pt-3 pl-3" id="scroll-box-holder"> -->
-                <div class="column m-0 p-0 is-12">
+                <span class="card-title activator white-text">Pets I am Interested In </span>
+                <!-- <p>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                  Pick Me <br>
+                </p> -->
+                  <div class="column m-0 p-0 is-12">
                     <div class="columns m-0">
                         <div class="column is-12 my-3 is-align-items-center" id="pastLikesHeader">
                         </div>
                     </div>
                     <div class="columns m-0">
                         <div class="column is-12 m-0 p-0 is-flex is-justify-content-center" id="pastLikesTitle">
-                            Liked Pets
                         </div>
                     </div>
                     <div class="columns m-0" id="scroll-box">
                         <div class="column is-12" id="pastLikesDiv">
-                            <!-- DYNAMIC CONTENT GOES HERE -->
+                            DYNAMIC CONTENT GOES HERE
                         </div>
                     </div>
                 </div>
-              </div>
+                <div class="row">
+                  </div class="input-field">
+                    <i class="material-icons prefix">location_on</i>
+                    <input type="text" class="datepicker "> 
+                    <i class="material-icons prefix">location_on</i>
+                    <label for="date">Make an Appoiment to Meet</label>
+                    <br>
+                  </div>
+                </div>
             </div>
         </div> 
   </div>
 
   <!-- 2nd Parallax Container w/ "Background 2" -->
 
+  
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light teal-text text-lighten-1">A modern responsive front-end framework based on Material Design</h5>
+          <!-- <h5 class="header col teal-text text-lighten-1">A modern responsive front-end framework based on Material Design</h5> -->
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="images\animals.jpg"></div>
+    <div class="parallax"><img src="\adoption\images\adopt-me-pet (2).jpg" alt="Unsplashed background img 2"></div>
   </div>
 
-  <div class="container">
+  <div class="container" id="make-an-impact">
     <div class="section">
-
       <div class="row">
         <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Open for Info</h4>
+          <h3><i class="mdi-content-send black-text"></i></h3>
+          <h4>JACOB INFO HERE</h4>
+          <h5 class="header purple-text text-deep">Coming Soon</h5>
+          <p class="center-align light">CONTRIBUTE</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <!-- <h5 class="header col s12 text-white">A modern responsive front-end framework based on Material Design</h5> -->
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="./images/dogcollage.png"></div>
+  </div>
+
+  
+  <div class="container" id="education">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send black-text"></i></h3>
+          <h4>Education</h4>
+          <h5 class="header purple-text text-deep">Coming Soon</h5>
           <p class="center-align light">“Whoever declared that love at first sight doesn’t exist has never witnessed the purity of a puppy or looked deep into a puppy’s eyes. If they did, their lives would change considerably.”
             - Elizabeth Parker.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <!-- <h5 class="header col teal-text text-lighten-1">A modern responsive front-end framework based on Material Design</h5> -->
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="\adoption\images\animals.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container" id="about-us">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send black-text"></i></h3>
+          <h4>PRITI INFO HERE</h4>
+          <h5 class="header purple-text text-deep">Coming Soon</h5>
+          <p class="center-align light">ABOUT US</p>
         </div>
       </div>
 
@@ -237,23 +319,30 @@
 
 
 <!-- contact us start -->
-<div id="index-banner" class="parallax-container">
+<div class="parallax-container valign-wrapper">
   <div class="section no-pad-bot">
     <div class="container">
-      <br><br>
-      <h1 class="header center ">Find Your Match today!</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">"Get out & Play!"</h5>
+     <div class="row center">
+       
+     </div>
+      <div class="section">
+        <div class="carousel">
+          <a class="carousel-item"><img src="../template/images/aus-shepard.jpeg"></a>
+          <a class="carousel-item"><img src="../template/images/Sparrow.jpg"></a>
+          <a class="carousel-item"><img src="../template/images/Cooper.jpg"></a>
+          <a class="carousel-item"><img src="../template/images/foxy.JPG"></a>
+          <a class="carousel-item"><img src="../template/images/fatCat-basket.jpg"></a>
+        </div>
       </div>
-      <br><br>
     </div>
   </div>
-  <div class="parallax"><img src="../assets/images/dogcollage.png"></div>
+  
+  <div class="parallax"><img src="./images/wood-background.jpg"></div>
 </div>
 
 
 
-<section id="reach-out" class="contact">
+<section id="contact-us" class="contact">
   <div class="flex-row">
     <h2 class="section-title secondary-border">
       Contact Us
@@ -292,9 +381,9 @@
       </form>
     </div>
     
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3449.0382255212994!2d-97.3094016844816!3d30.178902019162248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864490563fbbe2f9%3A0x8eb1778cf0567c43!2s225%20Cool%20Water%20Dr%2C%20Bastrop%2C%20TX%2078602!5e0!3m2!1sen!2sus!4v1629174410837!5m2!1sen!2sus" 
-    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-</iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.5953913027643!2d-95.6430130825562!3d29.557275200000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640e40b83857ae9%3A0x168f9d3193817766!2sPawm%20Springs%20Dog%20Park!5e0!3m2!1sen!2sus!4v1632371762489!5m2!1sen!2sus" 
+    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
   </div>
 </section>
 <!-- contact us end -->
@@ -302,34 +391,14 @@
 
    <!--Footer -->
 
-  <footer class="page-footer teal lighten-1">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Our Team Members</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project.</p>
-        </div>
-
-          <div class="col l3 s12">  
-            <h5 class="white-text">References</h5>
-            <ul>
-              <li><a class="white-text" href="#!"><i class="bi bi-link-45deg"></i> Link 1</a></li>
-              <li><a class="white-text" href="#!"><i class="bi bi-link-45deg"></i> Link 2</a></li>
-            </ul>
-          </div>
-
-
-    <div>
-      <h6>❤️ Made with love by Wags 'n Whiskers</h6>
-      <a  class="privacy" href="./privacy-policy.html">Read Our Privacy Policy</a><br/>
-      &copy; 2021 Wags 'n Whiskers
-    </div>
-
-
+    <footer>
+      <h5>❤️ Made with love by Wags 'n Whiskers</h5>
+      <div>
+        <a href="./privacy-policy.html">Read Our Privacy Policy</a><br/>
+        &copy; 2021 Wags 'n Whiskers Co. 🐾
       </div>
-    </div>
-  </footer>
-
+    </footer>
+    <!-- footer end -->
 
  <!-- Script -->
 
