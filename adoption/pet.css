@@ -9,7 +9,10 @@
 /* nav hover */
 nav a {
     text-decoration: none;
+<<<<<<< HEAD
     color:#1344e6;
+=======
+>>>>>>> jtaylor
   }
   
 nav {
@@ -31,6 +34,10 @@ nav ul li a:hover {
     text-shadow: none;
   }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> jtaylor
 #pastLikesHeader,
 .past-likes {
     display: flex;

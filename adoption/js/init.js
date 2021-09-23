@@ -6,8 +6,9 @@
     $('.parallax').parallax();
 
     $('.datepicker').datepicker({
-     
+
     });
+
     
     $(".datepicker").blur(function(e) { $(this).datepicker("hide"); });
 
