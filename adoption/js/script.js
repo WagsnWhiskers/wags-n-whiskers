@@ -1,10 +1,9 @@
 //The Dog Api
-//https://api.thedogapi.com/v1/breeds/search?q=
-//api key = "6c09c349-113e-4625-8c2d-219f68ebc17d"
+// const dogURL = "https://api.thedogapi.com/v1/breeds/search?q="
+// const dogAPIkey = "6c09c349-113e-4625-8c2d-219f68ebc17d"
 
 //PetFinder API Info 
 //https://api.petfinder.com/v2/animals?type=dog
-const dogAPIkey = 'c8cd1d33-b825-4d0b-aeca-b35206aec201';
 const petFinderAPIKey = 'RcXYh4mDw2b7Y8vdtikNqfAq4DnlTjpFXttwGIxMBSGQWBJBNx';
 const petFinderSecret = '4zBV99JLvPpoicS8Efy8Bb6TFvDumlTyMylQ4z56';
 
@@ -114,32 +113,54 @@ fetch(url, options)
 var displayDog = function(data) {
     
     var i = Math.floor(Math.random() * 20) + 1;
+    console.log(i)
     // console.log(i)
     // var index = ['']
     // var randomDog = data.animals[Math.floor(Math.random() * userRange)]
     // console.log(randomDog)
     
     var photos = data.animals[i].photos[0].small;
+    var breed = data.animals[i].breeds.primary;
     
     if(photos){
+
+        var photos = data.animals[i].photos[0].small;
+    var breed = data.animals[i].breeds.primary;
+
     displayPhoto.src = data.animals[i].photos[0].medium;
     displayName.textContent = data.animals[i].name;
     displayGender.textContent = data.animals[i].gender;
-    displayBreed.textContent = data.animals[i].breeds.primary;
+    displayBreed.textContent = breed;
     displayAge.textContent = data.animals[i].age;
     displaySize.textContent = data.animals[i].size;
     displayDesc.textContent = data.animals[i].description;
-}
+
+    dogBreed(breed);
+} 
     
+ }
 
+// likeBtnEl.addEventListener('click', function() {
+    
+ 
+// })
+
+var dogBreed = function (breed) {
+
+const dogURL = "https://api.thedogapi.com/v1/breeds/search?q=" + breed
+const dogAPIkey = "6c09c349-113e-4625-8c2d-219f68ebc17d"
+
+const options = {
+    headers: {
+        'x-api-key': dogAPIkey
+    }
 }
 
+    fetch(dogURL, options)
+    .then(response => response.json())
+     .then(data => console.log(data))
 
-dislikeBtnEl.addEventListener('click', function(){
-    console.log('poop')
-})
-
-// var dogBreed = function () {
+     }
 
 
 
