@@ -73,7 +73,7 @@ searchBtnEl.addEventListener("click", function(event) {
     event.preventDefault();
     petGenders();
 
-    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjVkNDI2NjM4MmZmZGFlMmM4OWU1Mzg1YjE1MjM4N2I1MmYzYjdmODk1YmYwNmU0Y2RlNTU5NjBjOTlkY2JiYzdiNjBiMzYzZTE1YTk0M2UwIiwiaWF0IjoxNjMyNDE2MjM4LCJuYmYiOjE2MzI0MTYyMzgsImV4cCI6MTYzMjQxOTgzOCwic3ViIjoiIiwic2NvcGVzIjpbXX0.B0l4yHoDDMC29TrLFEA3HeuQKxjb_ndmYwcfJdaqy-NBEBXME1MBRFXvSLtEljjmNxAxT7JnyVCkg6E-S_vs-OJfXTBD6skKOcQtszMHIdao4qC3Jt4SDz7hH3MlllUhvoMHbws-mWqlxTGWSE0XMEgru3LnYyI-n9nV8FxmZtcWVMQXP-GzKS-OJ0wdIxvuz-Eu_vNs8jRB9cXJWoDSpGvLne9R4yEfnzlkpBmXyp7Thk5kKSocADI-CO2xcMlXYBD__nwEz3F9HAkCiijfKPC1s1ydeFnW2NPoJDDSaIB9gT5NcWvj9HEctBCaG-_kNffrKriLhFSVJeDIpwhjmg"
+    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6ImM2NzliZjZjMmEwMGM4N2E1OGU5ZjAyNGVhNTk1M2MyZmUxZWRlODlkNzZjZjc3OTE4NWU1NTk5Yjg5YTdmMGU3YmI3NzNhNmVmZGQ4YzlmIiwiaWF0IjoxNjMyNDE5OTY1LCJuYmYiOjE2MzI0MTk5NjUsImV4cCI6MTYzMjQyMzU2NSwic3ViIjoiIiwic2NvcGVzIjpbXX0.Bik47xteL-4iLmyVO02B-LUQ1W-Ib0qV8hewXUZa-QGon5Pk96oCrrbxPgrvEryhnQ5JJPr8szsrmagbcK2kFj-BEwx-P6d07l2-2jIRiyzw_B0f7Y4U2wPIsf2UP5oFHPhIX5zFdo6TniFI_Hpauy_DL4tVXPXhgZNQ7IxzCeWMPSU4EPYlhWftazjlWXmBRLx7_a1aYnKzw7E0Vwqjlulvp1TtjSS0erAI_eHliuK_O6zyPbA6SGuiDUeWiQmG3PWjAf8S4lUKd6_Go4wYdmO_LghbAfGHgo8ysZN_Am3vPNmpJz7pUCwOQlyYJGz-knGaxOsZoN5sh1aRWr2bIg"
 
 const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value + "&location=" + userCityEl.value + "&size=" + userSizeEl.value + "&gender=" + userGenders
 
@@ -82,24 +82,6 @@ const options = {
         Authorization: "Bearer " + bearerToken
     }
 }
-    
-    
-
-//     if(userCityEl.value == ""){
-// // Tried creating modal to alert the user to enter a value
-//         $("#searchButton").after(
-            
-//             `<div id="modal1" class="modal">
-//             <div class="modal-content">
-//               <h4>Modal Header</h4>
-//               <p>A bunch of text</p>
-//             </div>
-//             <div class="modal-footer">
-//               <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-//             </div>
-//           </div>`)
-        
-    // }
 
 fetch(url, options)
     .then(response => response.json())
@@ -111,23 +93,23 @@ fetch(url, options)
 })
 
 var displayDog = function(data) {
-    
-    var i = Math.floor(Math.random() * 20) + 1;
+    //var animalLength = data.animals.length;
+    var i = Math.floor(Math.random() * 20) + 1
     console.log(i)
     // console.log(i)
     // var index = ['']
-    // var randomDog = data.animals[Math.floor(Math.random() * userRange)]
+    // var i = data.animals[Math.floor(Math.random() * userRange)]
     // console.log(randomDog)
     
     var photos = data.animals[i].photos[0].small;
-    var breed = data.animals[i].breeds.primary;
+    // var breed = data.animals[i].breeds.primary;
     
     if(photos){
 
-        var photos = data.animals[i].photos[0].small;
+    //var photos = data.animals[i].photos[0].small;
     var breed = data.animals[i].breeds.primary;
 
-    displayPhoto.src = data.animals[i].photos[0].medium;
+    displayPhoto.src = photos;
     displayName.textContent = data.animals[i].name;
     displayGender.textContent = data.animals[i].gender;
     displayBreed.textContent = breed;
@@ -140,7 +122,10 @@ var displayDog = function(data) {
     
  }
 
-// likeBtnEl.addEventListener('click', function() {
+likeBtnEl.addEventListener('click', function(event) {
+    event.preventDefault()
+
+
     
  
 // })
@@ -158,7 +143,12 @@ const options = {
 
     fetch(dogURL, options)
     .then(response => response.json())
-     .then(data => console.log(data))
+     .then(breedData => {
+        displaySize.textContent = displaySize.textContent + " / " + breedData[0].weight.imperial + "lbs";
+         console.log(breedData)})
+         console.log(displaySize.textContent)
+
+     
 
      }
 
