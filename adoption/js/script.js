@@ -1,6 +1,6 @@
 //The Dog Api
-// const dogURL = "https://api.thedogapi.com/v1/breeds/search?q="
-// const dogAPIkey = "6c09c349-113e-4625-8c2d-219f68ebc17d"
+const dogURL = "https://api.thedogapi.com/v1/breeds/search?q="
+const dogAPIkey = "6c09c349-113e-4625-8c2d-219f68ebc17d"
 
 //PetFinder API Info 
 //https://api.petfinder.com/v2/animals?type=dog
@@ -54,6 +54,8 @@ var userRange = 50; //miles range 1-500 default:100 (gets bigger if no animals a
 //     }
 // }
 
+var i = 0;
+
 var init = function () {
 
     searchBtnEl.addEventListener('click', findDog);
@@ -65,8 +67,6 @@ var init = function () {
 
 
 var petGenders = function() {
-
-    
 
     if(userMaleEl.checked) {
         userGenders = 'male';
@@ -86,7 +86,7 @@ var findDog = function() {
     // event.preventDefault();
     petGenders();
 
-    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjNiOWMxZmRkN2ViY2ViY2FlODk5N2VjOWU2MTAxNzgxMDBjYTRkNmM2YzIxOWUyYTUyMzIyYTgyYjA0MzIzZTFiY2QzOTIxZTE2NmJhNTUzIiwiaWF0IjoxNjMyNDI3Mzk3LCJuYmYiOjE2MzI0MjczOTcsImV4cCI6MTYzMjQzMDk5Nywic3ViIjoiIiwic2NvcGVzIjpbXX0.dAZhOQSqyaIKdq7DdIrA0HyqhX0ldJwVriU6ibM0pyyyi8k1xaBiIO7XQttNw7n1X3eqKhaLp4OjVeZ1Qn50ZUJkfN4_EAjYP2D48rAl81k65akCuVq2Fk92sn-mVwWOhrJN9CZvXKfuleMcnF2K0soWfBd8RCUq1GPJAptpbUzLSocbHuczbidEqO0_x6zTeL3D1EZ6uxTJmWXDwhQr2KTQtHd5Z-QHi1g0F9Ce4fJL2RzieD18RQ-VpgRdHLfRVPiuzDWvMBl0v4UrOB30GgFpNtNuGGAwfOHLD1bSuvwm3kf0OJ3z91-rbIp0VVTywnsZzsJxctXfiL_OIB0FVA"
+    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6ImM2YmRjMzA2NjcxNTljMWJkNzE1YzZhNjlhNGVmMDdkYWE5MjEyNWE1NjZkNmM4MjliMGNlYmNkNjBiN2YwMjE5NmU3N2Y5ZTA3YTIwNGEzIiwiaWF0IjoxNjMyNDMxMTM5LCJuYmYiOjE2MzI0MzExMzksImV4cCI6MTYzMjQzNDczOCwic3ViIjoiIiwic2NvcGVzIjpbXX0.ViWGEneefZRA_8eajPoAfD_VGQr9GDYFK6z0rTehgoUJ-mhXpjMrU39-9LjTsP8B5uMMJZtAUJeV6HKfE9U_93kSUKRWFlv1YhNqr3vxbziIhgsd1I5VoWeKPub747Odh9uyg-pmbGiM7OQgO2nRpAbTU9WbpHdQHGPP6HsoUoJEhdMs_6dD1-7OzYVr9trO9In0W10I31xHXu_GrkBU2bKTtmKkFoJexC9KrUKqQu6KLN_vfOQzHZ-qe8CXbo2-sc5kyyIv5Gv8GJt2KdJ95AVsXvmRyKW_Aubc8HOfjw2jlm4WKXhAW0SovxdEsF4GWrH7Z5jEgsDDB_dzCSf__w"
 
 const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value + "&location=" + userCityEl.value + "&size=" + userSizeEl.value + "&gender=" + userGenders
 
@@ -106,33 +106,29 @@ fetch(url, options)
 }
 
 var displayDog = function(data) {
+    i++;
     var animalLength = data.animals.length;
-    var i = Math.floor(Math.random() * 20) + 1
+    //foreach(i = 1; i < animalLength; i++){
+    //var i = Math.floor(Math.random() * 20) + 1
     console.log(i)
-    // console.log(i)
-    // var index = ['']
-    // var i = data.animals[Math.floor(Math.random() * userRange)]
-    // console.log(randomDog)
-    
     var photos = data.animals[i].photos[0].medium;
-    // var breed = data.animals[i].breeds.primary;
     
     if(photos){
 
-    //var photos = data.animals[i].photos[0].small;
     var breed = data.animals[i].breeds.primary;
 
     displayPhoto.src = photos;
     displayName.textContent = data.animals[i].name;
     displayGender.textContent = data.animals[i].gender;
-    displayBreed.textContent = breed;
+    displayBreed.innerHTML = breed;
     displayAge.textContent = data.animals[i].age;
     displaySize.textContent = data.animals[i].size;
     displayDesc.textContent = data.animals[i].description;
 
     dogBreed(breed);
 } else{
-    displayNextAnimal();
+    findDog();
+    
 }}
     
 var likeButton = function() {
@@ -173,17 +169,8 @@ const options = {
          console.log(displaySize.textContent)
 }
 
-var displayNextAnimal = function() {
 
-
-
-}
-    
-dislikeBtnEl.addEventListener('click', function(searchBtnEl){
-
-
-}
-)
+dislikeBtnEl.addEventListener('click', findDog)
 
 
 
