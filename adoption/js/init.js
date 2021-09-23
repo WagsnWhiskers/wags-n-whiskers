@@ -10,6 +10,14 @@
     });
     
     $(".datepicker").blur(function(e) { $(this).datepicker("hide"); });
+
+    $('.carousel').carousel({
+      padding: 200
+    });
+    autopay();function autopay() {
+      $('.carousel').carousel('next');
+      setTimeout(autopay, 4500);
+    }
    
     
 
