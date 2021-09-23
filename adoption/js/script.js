@@ -14,6 +14,8 @@ var userAgeEl = document.getElementById('user-age');
 var userSizeEl = document.getElementById('user-size');
 var userFemaleEl = document.getElementById('user-gender-female');
 var userMaleEl = document.getElementById('user-gender-male');
+var userGenders = '';
+
 
 //Pet Display
 var displayName = document.getElementById('petName');
@@ -23,6 +25,7 @@ var displaySize = document.getElementById('petSize');
 var displayDesc = document.getElementById('petDescription');
 var displayPhoto = document.getElementById('petPhoto');
 var displayBreed = document.getElementById('petBreed');
+
 
 
 //! HTML ELEMENTS
@@ -50,7 +53,17 @@ var userRange = 50; //miles range 1-500 default:100 (gets bigger if no animals a
 //         Authorization: "Bearer " + bearerToken
 //     }
 // }
-var userGenders = '';
+
+var init = function () {
+
+    searchBtnEl.addEventListener('click', findDog);
+    likeBtnEl.addEventListener('click', likeButton)
+
+}
+
+
+
+
 var petGenders = function() {
 
     
@@ -69,11 +82,11 @@ var petGenders = function() {
 
 console.log(userCityEl)
 //Fetch function
-searchBtnEl.addEventListener("click", function(event) {
-    event.preventDefault();
+var findDog = function() {
+    // event.preventDefault();
     petGenders();
 
-    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6Ijg1YmUxN2VjODQ2MmJiMTlkNGFjZTIzMTAwYWYwNjVmODlmYmZhZWE0MmIwYWQwYmE5ZTk1NDQ3Mzg0ZTJhZWZmMDAzMWZkMzg1ZmVmZTMxIiwiaWF0IjoxNjMyNDIzNzM5LCJuYmYiOjE2MzI0MjM3MzksImV4cCI6MTYzMjQyNzMzOSwic3ViIjoiIiwic2NvcGVzIjpbXX0.TZsvGEfktadxIABcscBAmOa3MKXEb3OiaIRmL-Zezzpm8F3vmWzi2kv7wWkIY-AjRVhZuMhc1vKIlQLb6OSlfnyMfkcD4LZ2fn8iPQn7BJskDyX6xdkxY_nKVEhQ-OYPobsvEV-AyFdJ-lkwYrwJk131uKvESMIjmXJH3RG240nVO3lmQeAx2H3VVi_DvjADulBIMVYs14Ubp9t7kIS_R7aXqr5xUB2wR0aywcQAcMGrjCkhPnliSSi2Ho_gUHwS3SXWJS8cmpWB-IDg66idoB8O8TA1loEK9m3X32gdKhA0ZWglyJcQZNV8cMqEeSg93VmYQ-_YMRnvP_omjnU2sg"
+    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjNiOWMxZmRkN2ViY2ViY2FlODk5N2VjOWU2MTAxNzgxMDBjYTRkNmM2YzIxOWUyYTUyMzIyYTgyYjA0MzIzZTFiY2QzOTIxZTE2NmJhNTUzIiwiaWF0IjoxNjMyNDI3Mzk3LCJuYmYiOjE2MzI0MjczOTcsImV4cCI6MTYzMjQzMDk5Nywic3ViIjoiIiwic2NvcGVzIjpbXX0.dAZhOQSqyaIKdq7DdIrA0HyqhX0ldJwVriU6ibM0pyyyi8k1xaBiIO7XQttNw7n1X3eqKhaLp4OjVeZ1Qn50ZUJkfN4_EAjYP2D48rAl81k65akCuVq2Fk92sn-mVwWOhrJN9CZvXKfuleMcnF2K0soWfBd8RCUq1GPJAptpbUzLSocbHuczbidEqO0_x6zTeL3D1EZ6uxTJmWXDwhQr2KTQtHd5Z-QHi1g0F9Ce4fJL2RzieD18RQ-VpgRdHLfRVPiuzDWvMBl0v4UrOB30GgFpNtNuGGAwfOHLD1bSuvwm3kf0OJ3z91-rbIp0VVTywnsZzsJxctXfiL_OIB0FVA"
 
 const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value + "&location=" + userCityEl.value + "&size=" + userSizeEl.value + "&gender=" + userGenders
 
@@ -90,7 +103,7 @@ fetch(url, options)
          console.log(data)})
     //  displayDog(data)
     
-})
+}
 
 var displayDog = function(data) {
     var animalLength = data.animals.length;
@@ -120,9 +133,27 @@ var displayDog = function(data) {
     dogBreed(breed);
 } else{
     displayNextAnimal();
-}
+}}
     
- } 
+var likeButton = function() {
+
+    console.log(displayName.textContent)
+ $("#pastLikesDiv").append(
+
+    `<ul class="collection">
+    <li class="collection-item avatar">
+      <img src=${displayPhoto.src} alt="picture of dog" class="circle">
+      <span class="title black-text">${displayName.textContent}</span>
+      <p class="black-text">${displayGender.textContent}<br>${displayAge.textContent}
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons right">grade</i></a>
+    </li>
+    </ul>`
+ )
+        findDog();
+ }
+
+ 
 
 var dogBreed = function (breed) {
 
@@ -147,32 +178,18 @@ var displayNextAnimal = function() {
 
 
 }
-
-likeBtnEl.addEventListener('click', function() {
-
-    console.log(displayName.textContent)
- $("#pastLikesDiv").append(
-
-    `<ul class="collection">
-    <li class="collection-item avatar">
-      <img src=${displayPhoto.src} alt="picture of dog" class="circle">
-      <span class="title black-text">${displayName.textContent}</span>
-      <p class="black-text">${displayGender.textContent}<br>${displayAge.textContent}
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons right">grade</i></a>
-    </li>
-    </ul>`
- )
-
- })
     
-dislikeBtnEl.addEventListener('click', function(){}
+dislikeBtnEl.addEventListener('click', function(searchBtnEl){
+
+
+}
 )
 
 
 
 // }
 petGenders();
+init();
 
 
 
