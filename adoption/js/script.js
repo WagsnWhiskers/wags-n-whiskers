@@ -1,3 +1,9 @@
+//The Dog Api
+//https://api.thedogapi.com/v1/breeds/search?q=
+//api key = "6c09c349-113e-4625-8c2d-219f68ebc17d"
+
+//PetFinder API Info 
+//https://api.petfinder.com/v2/animals?type=dog
 const dogAPIkey = 'c8cd1d33-b825-4d0b-aeca-b35206aec201';
 const petFinderAPIKey = 'RcXYh4mDw2b7Y8vdtikNqfAq4DnlTjpFXttwGIxMBSGQWBJBNx';
 const petFinderSecret = '4zBV99JLvPpoicS8Efy8Bb6TFvDumlTyMylQ4z56';
@@ -29,12 +35,12 @@ var petFinderClient = new petfinder.Client({ //petfinder api object (called in 2
     apiKey: petFinderAPIKey, //private api key (required)
     secret: petFinderSecret //private secret key (required)
 });
-
+console.log(petFinderClient)
 
 
 // Fetch Request
 // Will need to create a refresh token of some sort // Further Research
-var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjJlZWIyMzYwMmRiMTJhODFhOGNmMWFhODk0M2ExZjkwMDdmZWRjMWUwMWFlYmQzZDVlZmQwNmNhNjNjN2FiZWYwMGZjMjJkZDNhNmI1NTAwIiwiaWF0IjoxNjMyMzQzOTAzLCJuYmYiOjE2MzIzNDM5MDMsImV4cCI6MTYzMjM0NzUwMywic3ViIjoiIiwic2NvcGVzIjpbXX0.N98xjM-5S2CqA8KmMiZ0vKfaLncMsN_hec5N_Zte64XDAGryho7OJwtO2qLwodaiIw9c_84ZZyditNTtaVtKXVguA4wSTvKGUuxfg26iLsYFZ8YvC3vpYSpEXrPfYhgT0Yt6bpcNBVtzR9l2asEEgMKpZkp7daXRbw5HPdl3ZTIfTNW5ae1PkVxoq26-InhM60cIAAmNQyDdS-jy0j2u1VfkEJh32IspUzBS7yOEG_UuHMCgFhB9is_TxWUY37ZtUAyfyWsHR9dJA1PBPMMmEJSpz8ZGjt0EABk5U_AIGZjSKOoWJRC3DMYk7nKHCXdBvMNngEm7Ss7P30UbgOtghw"
+var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6ImQzYjU1MzFiZGM2OTE2YTg4ZWY3NDAxYTFkNDQ1NDVlNDFiZmYxM2FmMzJkM2RkNzY3NjFkMjVjNzBkOGQ0YjEzMjk1MmQwYjM1MzU3ZmM3IiwiaWF0IjoxNjMyMzUwNzM3LCJuYmYiOjE2MzIzNTA3MzcsImV4cCI6MTYzMjM1NDMzNywic3ViIjoiIiwic2NvcGVzIjpbXX0.pZnI1WSxq0zioONkz1NhHpasaVK6cG97lwXdZa51RRMRcKolonA0ScGVjLNsbGPM99a_yXs90RE6OCo0qYV7SS2jG2DtL8ZAoOrgBg2A3S_u_WyS2msvuad30aCnNOtXgaEzvXb6K8Vz8tZ_-cpcj5krXI-eNl8YIuMdU_CfpUHpQthJwtFY8b8LLVqqb55MoV8BZz5j6vJtBSiY-cs12wE6p0M_C8bsda3ClL0dKZCsSXv3mraaQRPTyVscwQDNnU_RJQqPpJgLpBxgyXar9_t8E6LQ3PAm_Eae1Kbz2kOHEouCMTG-D0clZzSYYCIRnD0SwuMfbIoSTv85utkxmA"
 
 const url = "https://api.petfinder.com/v2/animals?type=dog"
 
@@ -62,8 +68,6 @@ var petSelections = function() {
     }
 
     return userGenders;
-
-
 }
 
 
@@ -91,7 +95,6 @@ fetch(url, options)
     .then(response => response.json())
     .then((data) => console.log(data));
 })
-
 
 
 
