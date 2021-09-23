@@ -73,7 +73,7 @@ searchBtnEl.addEventListener("click", function(event) {
     event.preventDefault();
     petGenders();
 
-    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6ImM2NzliZjZjMmEwMGM4N2E1OGU5ZjAyNGVhNTk1M2MyZmUxZWRlODlkNzZjZjc3OTE4NWU1NTk5Yjg5YTdmMGU3YmI3NzNhNmVmZGQ4YzlmIiwiaWF0IjoxNjMyNDE5OTY1LCJuYmYiOjE2MzI0MTk5NjUsImV4cCI6MTYzMjQyMzU2NSwic3ViIjoiIiwic2NvcGVzIjpbXX0.Bik47xteL-4iLmyVO02B-LUQ1W-Ib0qV8hewXUZa-QGon5Pk96oCrrbxPgrvEryhnQ5JJPr8szsrmagbcK2kFj-BEwx-P6d07l2-2jIRiyzw_B0f7Y4U2wPIsf2UP5oFHPhIX5zFdo6TniFI_Hpauy_DL4tVXPXhgZNQ7IxzCeWMPSU4EPYlhWftazjlWXmBRLx7_a1aYnKzw7E0Vwqjlulvp1TtjSS0erAI_eHliuK_O6zyPbA6SGuiDUeWiQmG3PWjAf8S4lUKd6_Go4wYdmO_LghbAfGHgo8ysZN_Am3vPNmpJz7pUCwOQlyYJGz-knGaxOsZoN5sh1aRWr2bIg"
+    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6Ijg1YmUxN2VjODQ2MmJiMTlkNGFjZTIzMTAwYWYwNjVmODlmYmZhZWE0MmIwYWQwYmE5ZTk1NDQ3Mzg0ZTJhZWZmMDAzMWZkMzg1ZmVmZTMxIiwiaWF0IjoxNjMyNDIzNzM5LCJuYmYiOjE2MzI0MjM3MzksImV4cCI6MTYzMjQyNzMzOSwic3ViIjoiIiwic2NvcGVzIjpbXX0.TZsvGEfktadxIABcscBAmOa3MKXEb3OiaIRmL-Zezzpm8F3vmWzi2kv7wWkIY-AjRVhZuMhc1vKIlQLb6OSlfnyMfkcD4LZ2fn8iPQn7BJskDyX6xdkxY_nKVEhQ-OYPobsvEV-AyFdJ-lkwYrwJk131uKvESMIjmXJH3RG240nVO3lmQeAx2H3VVi_DvjADulBIMVYs14Ubp9t7kIS_R7aXqr5xUB2wR0aywcQAcMGrjCkhPnliSSi2Ho_gUHwS3SXWJS8cmpWB-IDg66idoB8O8TA1loEK9m3X32gdKhA0ZWglyJcQZNV8cMqEeSg93VmYQ-_YMRnvP_omjnU2sg"
 
 const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value + "&location=" + userCityEl.value + "&size=" + userSizeEl.value + "&gender=" + userGenders
 
@@ -93,7 +93,7 @@ fetch(url, options)
 })
 
 var displayDog = function(data) {
-    //var animalLength = data.animals.length;
+    var animalLength = data.animals.length;
     var i = Math.floor(Math.random() * 20) + 1
     console.log(i)
     // console.log(i)
@@ -101,7 +101,7 @@ var displayDog = function(data) {
     // var i = data.animals[Math.floor(Math.random() * userRange)]
     // console.log(randomDog)
     
-    var photos = data.animals[i].photos[0].small;
+    var photos = data.animals[i].photos[0].medium;
     // var breed = data.animals[i].breeds.primary;
     
     if(photos){
@@ -118,17 +118,11 @@ var displayDog = function(data) {
     displayDesc.textContent = data.animals[i].description;
 
     dogBreed(breed);
-} 
+} else{
+    displayNextAnimal();
+}
     
- }
-
-likeBtnEl.addEventListener('click', function(event) {
-    event.preventDefault()
-
-
-    
- 
-// })
+ } 
 
 var dogBreed = function (breed) {
 
@@ -140,17 +134,40 @@ const options = {
         'x-api-key': dogAPIkey
     }
 }
-
     fetch(dogURL, options)
     .then(response => response.json())
      .then(breedData => {
         displaySize.textContent = displaySize.textContent + " / " + breedData[0].weight.imperial + "lbs";
          console.log(breedData)})
          console.log(displaySize.textContent)
+}
 
-     
+var displayNextAnimal = function() {
 
-     }
+
+
+}
+
+likeBtnEl.addEventListener('click', function() {
+
+    console.log(displayName.textContent)
+ $("#pastLikesDiv").append(
+
+    `<ul class="collection">
+    <li class="collection-item avatar">
+      <img src=${displayPhoto.src} alt="picture of dog" class="circle">
+      <span class="title black-text">${displayName.textContent}</span>
+      <p class="black-text">${displayGender.textContent}<br>${displayAge.textContent}
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons right">grade</i></a>
+    </li>
+    </ul>`
+ )
+
+ })
+    
+dislikeBtnEl.addEventListener('click', function(){}
+)
 
 
 
