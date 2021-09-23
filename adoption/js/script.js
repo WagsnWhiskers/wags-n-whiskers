@@ -16,6 +16,13 @@ var userSizeEl = document.getElementById('user-size');
 var userFemaleEl = document.getElementById('user-gender-female');
 var userMaleEl = document.getElementById('user-gender-male');
 
+//Pet Display
+var displayName = document.getElementById('petName');
+var displayGender = document.getElementById('petGender');
+var displayAge = document.getElementById('petAge');
+var displaySize = document.getElementById('petSize');
+var displayDesc = document.getElementById('petDescription');
+var displayPhoto =document.getElementById('petPhoto');
 
 
 //! HTML ELEMENTS
@@ -40,9 +47,9 @@ console.log(petFinderClient)
 
 // Fetch Request
 // Will need to create a refresh token of some sort // Further Research
-var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6ImQzYjU1MzFiZGM2OTE2YTg4ZWY3NDAxYTFkNDQ1NDVlNDFiZmYxM2FmMzJkM2RkNzY3NjFkMjVjNzBkOGQ0YjEzMjk1MmQwYjM1MzU3ZmM3IiwiaWF0IjoxNjMyMzUwNzM3LCJuYmYiOjE2MzIzNTA3MzcsImV4cCI6MTYzMjM1NDMzNywic3ViIjoiIiwic2NvcGVzIjpbXX0.pZnI1WSxq0zioONkz1NhHpasaVK6cG97lwXdZa51RRMRcKolonA0ScGVjLNsbGPM99a_yXs90RE6OCo0qYV7SS2jG2DtL8ZAoOrgBg2A3S_u_WyS2msvuad30aCnNOtXgaEzvXb6K8Vz8tZ_-cpcj5krXI-eNl8YIuMdU_CfpUHpQthJwtFY8b8LLVqqb55MoV8BZz5j6vJtBSiY-cs12wE6p0M_C8bsda3ClL0dKZCsSXv3mraaQRPTyVscwQDNnU_RJQqPpJgLpBxgyXar9_t8E6LQ3PAm_Eae1Kbz2kOHEouCMTG-D0clZzSYYCIRnD0SwuMfbIoSTv85utkxmA"
+var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjQwODIwYzg3ZjE4NTM0NGQ5ZDQ2ZDdjOWNjYjA4OTA0Y2MwMWQ5MDdhOTRjMjZjMGQ4ZDg2NzA4OTM0MjdiMDM5YTczNjczNDEzNDE5NjM0IiwiaWF0IjoxNjMyMzc0MDEzLCJuYmYiOjE2MzIzNzQwMTMsImV4cCI6MTYzMjM3NzYxMywic3ViIjoiIiwic2NvcGVzIjpbXX0.bx9dDUq6EOGLNEsHoM3I2RrzQ-6gQLhoDS6Dq4cCt_FT330AXl5JiVZtBMnJKNOw0WzegtGGje0ZMJaGEQZXhEGgYfTLggruH3TqbrKojKmw0IcR9y-pLYs4zviK0lWcwrNkLvFHZjbDy2TfN-opTsRZZwbL1H9PnmGIw2jtKFAGubuyHd2_MVwFtbJS6ntzNdJu_ihz9dSfslllPqOUqqDSrgXDv_oFGDRUSKqH5lYtM0zVRa7afphcYeSx1GTXXwWNCxzvzimaraqWEmldw9q0JKeaS5S29Q2aDR7poSRVOODwAW82Etln8hkb1MvuwzKj1iTH9dIG620Be0fwog"
 
-const url = "https://api.petfinder.com/v2/animals?type=dog"
+const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value
 
 const options = {
     headers: {
@@ -50,52 +57,92 @@ const options = {
     }
 }
 
-var petAge = function() {
-    var userAges = '';
-    return userAges = "";
-}
+// var petGenders = function() {
 
-var petSelections = function() {
+//     var userGenders = '';
 
-    var userGenders = '';
+//     if(userMaleEl.checked) {
+//         userGenders = 'male';
+//     }
 
-    if(userMaleEl.checked) {
-        userGenders = 'male';
-    }
+//     if(userFemaleEl.checked) {
+//         userGenders = "female";
+//     }
+//     console.log(userGenders);
+//     return userGenders;
+    
+// }
 
-    if(userFemaleEl.checked) {
-        userGenders = "female";
-    }
-
-    return userGenders;
-}
-
-
+console.log(userCityEl)
 //Fetch function
 searchBtnEl.addEventListener("click", function(event) {
-    //event.preventDefault();
-    
-    if(userCityEl.value == ""){
-// Tried creating modal to alert the user to enter a value
-        $("#searchButton").after(
-            
-            `<div id="modal1" class="modal">
-            <div class="modal-content">
-              <h4>Modal Header</h4>
-              <p>A bunch of text</p>
-            </div>
-            <div class="modal-footer">
-              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-            </div>
-          </div>`)
-        
+    event.preventDefault();
+
+    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjQwODIwYzg3ZjE4NTM0NGQ5ZDQ2ZDdjOWNjYjA4OTA0Y2MwMWQ5MDdhOTRjMjZjMGQ4ZDg2NzA4OTM0MjdiMDM5YTczNjczNDEzNDE5NjM0IiwiaWF0IjoxNjMyMzc0MDEzLCJuYmYiOjE2MzIzNzQwMTMsImV4cCI6MTYzMjM3NzYxMywic3ViIjoiIiwic2NvcGVzIjpbXX0.bx9dDUq6EOGLNEsHoM3I2RrzQ-6gQLhoDS6Dq4cCt_FT330AXl5JiVZtBMnJKNOw0WzegtGGje0ZMJaGEQZXhEGgYfTLggruH3TqbrKojKmw0IcR9y-pLYs4zviK0lWcwrNkLvFHZjbDy2TfN-opTsRZZwbL1H9PnmGIw2jtKFAGubuyHd2_MVwFtbJS6ntzNdJu_ihz9dSfslllPqOUqqDSrgXDv_oFGDRUSKqH5lYtM0zVRa7afphcYeSx1GTXXwWNCxzvzimaraqWEmldw9q0JKeaS5S29Q2aDR7poSRVOODwAW82Etln8hkb1MvuwzKj1iTH9dIG620Be0fwog"
+
+const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value + "&location=" + userCityEl + "&size=" + userSizeEl
+
+const options = {
+    headers: {
+        Authorization: "Bearer " + bearerToken
     }
+}
+    
+    
+
+//     if(userCityEl.value == ""){
+// // Tried creating modal to alert the user to enter a value
+//         $("#searchButton").after(
+            
+//             `<div id="modal1" class="modal">
+//             <div class="modal-content">
+//               <h4>Modal Header</h4>
+//               <p>A bunch of text</p>
+//             </div>
+//             <div class="modal-footer">
+//               <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+//             </div>
+//           </div>`)
+        
+    // }
 
 fetch(url, options)
     .then(response => response.json())
-    .then((data) => console.log(data));
+     .then(data => console.log(data))
+    //  displayDog(data)
+    console.log(userAgeEl.value)
 })
 
+// var displayDog = function(data) {
+//     // var index = ['']
+//     // var randomDog = data.animals[Math.floor(Math.random() * userRange)]
+//     // console.log(randomDog)
+//         url.search({
+//         //type: 'dog',
+//         //variables
+//         location: document.getElementById('user-city').value.trim(),
+//         distance: userRange, //miles range 1-500 default:100
+//         // before: displayPetsBeforeDate(),
+//         age: document.getElementById('user-age').value,
+//         size: document.getElementById('user-size').value,
+//         gender: petGenders(),
+//      })
+//     //displayPhoto.src = data.randomDog.photos[0].small;
+//    // displayName.textContent = randomDog.name;
+//   //  displayGender.textContent = randomDog.gender;
+//     displayAge.textContent = data.animals[1].age;
+//     displaySize.textContent = data.animals[1].size;
+//     displayDesc.textContent = data.animals[1].description;
+   
+    
+    
+// }
+
+// var dogBreed = function () {
+
+
+
+// }
 
 
 
