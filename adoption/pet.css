@@ -337,12 +337,8 @@
 
   /* FOOTER STYLES START */
   footer {
-<<<<<<< HEAD
-    background: #26a69a;
-=======
     background: #444;
     color: white;
->>>>>>> jtaylor
     padding: 40px 35px;
     display: flex;
     justify-content: space-between;
@@ -358,19 +354,11 @@
   
   footer div {
     line-height: 1.5;
-<<<<<<< HEAD
-    text-align: right;
-  }
-  
-  footer a {
-    color: white;
-=======
     text-align: center;
   }
   
   footer a {
     color: blue;
->>>>>>> jtaylor
   }
 
 
