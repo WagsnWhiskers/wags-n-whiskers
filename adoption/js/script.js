@@ -1,6 +1,6 @@
 //The Dog Api
-// const dogURL = "https://api.thedogapi.com/v1/breeds/search?q="
-// const dogAPIkey = "6c09c349-113e-4625-8c2d-219f68ebc17d"
+const dogURL = "https://api.thedogapi.com/v1/breeds/search?q="
+const dogAPIkey = "6c09c349-113e-4625-8c2d-219f68ebc17d"
 
 //PetFinder API Info 
 //https://api.petfinder.com/v2/animals?type=dog
@@ -14,6 +14,8 @@ var userAgeEl = document.getElementById('user-age');
 var userSizeEl = document.getElementById('user-size');
 var userFemaleEl = document.getElementById('user-gender-female');
 var userMaleEl = document.getElementById('user-gender-male');
+var userGenders = '';
+
 
 //Pet Display
 var displayName = document.getElementById('petName');
@@ -23,6 +25,7 @@ var displaySize = document.getElementById('petSize');
 var displayDesc = document.getElementById('petDescription');
 var displayPhoto = document.getElementById('petPhoto');
 var displayBreed = document.getElementById('petBreed');
+
 
 
 //! HTML ELEMENTS
@@ -50,10 +53,20 @@ var userRange = 50; //miles range 1-500 default:100 (gets bigger if no animals a
 //         Authorization: "Bearer " + bearerToken
 //     }
 // }
-var userGenders = '';
-var petGenders = function() {
 
-    
+var i = 0;
+
+var init = function () {
+
+    searchBtnEl.addEventListener('click', findDog);
+    likeBtnEl.addEventListener('click', likeButton)
+
+}
+
+
+
+
+var petGenders = function() {
 
     if(userMaleEl.checked) {
         userGenders = 'male';
@@ -69,11 +82,11 @@ var petGenders = function() {
 
 console.log(userCityEl)
 //Fetch function
-searchBtnEl.addEventListener("click", function(event) {
-    event.preventDefault();
+var findDog = function() {
+    // event.preventDefault();
     petGenders();
 
-    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6Ijg1YmUxN2VjODQ2MmJiMTlkNGFjZTIzMTAwYWYwNjVmODlmYmZhZWE0MmIwYWQwYmE5ZTk1NDQ3Mzg0ZTJhZWZmMDAzMWZkMzg1ZmVmZTMxIiwiaWF0IjoxNjMyNDIzNzM5LCJuYmYiOjE2MzI0MjM3MzksImV4cCI6MTYzMjQyNzMzOSwic3ViIjoiIiwic2NvcGVzIjpbXX0.TZsvGEfktadxIABcscBAmOa3MKXEb3OiaIRmL-Zezzpm8F3vmWzi2kv7wWkIY-AjRVhZuMhc1vKIlQLb6OSlfnyMfkcD4LZ2fn8iPQn7BJskDyX6xdkxY_nKVEhQ-OYPobsvEV-AyFdJ-lkwYrwJk131uKvESMIjmXJH3RG240nVO3lmQeAx2H3VVi_DvjADulBIMVYs14Ubp9t7kIS_R7aXqr5xUB2wR0aywcQAcMGrjCkhPnliSSi2Ho_gUHwS3SXWJS8cmpWB-IDg66idoB8O8TA1loEK9m3X32gdKhA0ZWglyJcQZNV8cMqEeSg93VmYQ-_YMRnvP_omjnU2sg"
+    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjNjYTQwZTkxOWI0MTlmZGNhZjYxYTgzMDc0MWYyMTUzZTVjYjhmZTYyZjRmNjI1MzgzOGJhMGM4MjYyMzE2NTdiZTZhNjlhNTg1YzE0YzdiIiwiaWF0IjoxNjMyNDM5ODc3LCJuYmYiOjE2MzI0Mzk4NzcsImV4cCI6MTYzMjQ0MzQ3Nywic3ViIjoiIiwic2NvcGVzIjpbXX0.bpinnIjTPdp7XWWwSyLIf78VvieCODgDXSZjdIHLvxEZ0asL2mJmvvClP_xPzg1NKI261R5YBUvxM_JXYwgqmVI3dmcACVN7BChrnHomxhvhcU-KMQbi4H2EACTLVUpf_EROiUmHlVXR4xVoxelpdisn95fsll_P05HNzX4CWjALtB5dm8QrW0gsDxxg8Rrm4T4TVGfcH_mxUFShu6i6X3K7xe3u3jCPvm6KTzg0P-c4DyjuaLdXVk5rbbMDWyP2fxlEenTxy9WcC4mqw3_cUtc4oN1K3mqZZ0jdOJ8TO832keg6Xev4vCFUr0PutzzpB-ekb5T3Y1Wtd2vdlAPIbw"
 
 const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value + "&location=" + userCityEl.value + "&size=" + userSizeEl.value + "&gender=" + userGenders
 
@@ -90,39 +103,56 @@ fetch(url, options)
          console.log(data)})
     //  displayDog(data)
     
-})
+}
 
 var displayDog = function(data) {
+    i++;
     var animalLength = data.animals.length;
-    var i = Math.floor(Math.random() * 20) + 1
+    //foreach(i = 1; i < animalLength; i++){
+    //var i = Math.floor(Math.random() * 20) + 1
     console.log(i)
-    // console.log(i)
-    // var index = ['']
-    // var i = data.animals[Math.floor(Math.random() * userRange)]
-    // console.log(randomDog)
-    
     var photos = data.animals[i].photos[0].medium;
-    // var breed = data.animals[i].breeds.primary;
     
     if(photos){
 
-    //var photos = data.animals[i].photos[0].small;
     var breed = data.animals[i].breeds.primary;
 
     displayPhoto.src = photos;
     displayName.textContent = data.animals[i].name;
     displayGender.textContent = data.animals[i].gender;
-    displayBreed.textContent = breed;
+    displayBreed.innerHTML = breed;
     displayAge.textContent = data.animals[i].age;
     displaySize.textContent = data.animals[i].size;
     displayDesc.textContent = data.animals[i].description;
 
     dogBreed(breed);
 } else{
-    displayNextAnimal();
-}
+    findDog();
     
- } 
+}}
+    
+var likeButton = function() {
+
+    console.log(displayName.textContent)
+ $("#pastLikesDiv").append(
+
+    `<ul class="collection">
+    <li class="collection-item avatar">
+      <img src=${displayPhoto.src} alt="picture of dog" class="circle">
+      <span class="title black-text">${displayName.textContent}</span>
+      <p class="black-text">${displayGender.textContent}<br>${displayAge.textContent}
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons right">grade</i></a>
+      </div class="input-field">
+      <i class="material-icons prefix">book_online</i><label for="appointment">Make an Appointment to Meet</label>
+      <input id="appointment" type="text" class="datepicker" > 
+    </li>
+    </ul>`
+ )
+        findDog();
+ }
+
+ 
 
 var dogBreed = function (breed) {
 
@@ -142,44 +172,23 @@ const options = {
          console.log(displaySize.textContent)
 }
 
-var displayNextAnimal = function() {
 
-
-
-}
-
-likeBtnEl.addEventListener('click', function() {
-
-    console.log(displayName.textContent)
- $("#pastLikesDiv").append(
-
-    `<ul class="collection">
-    <li class="collection-item avatar">
-      <img src=${displayPhoto.src} alt="picture of dog" class="circle">
-      <span class="title black-text">${displayName.textContent}</span>
-      <p class="black-text">${displayGender.textContent}<br>${displayAge.textContent}
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons right">grade</i></a>
-    </li>
-    </ul>`
- )
-
- })
-    
-dislikeBtnEl.addEventListener('click', function(){}
-)
+dislikeBtnEl.addEventListener('click', findDog)
 
 
 
 // }
 petGenders();
+init();
 
 
 
 
 
 
-
+$(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
 
 
 
