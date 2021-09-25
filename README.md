@@ -97,5 +97,9 @@ Link to be add
 •	Jessica Taylor Allen
 •	Jacob Johnson
 •	Priti Patel
+<<<<<<< HEAD
 •	Marsol Ramierz
+>>>>>>> jtaylor
+=======
+•	Marsol Ramirez
 >>>>>>> jtaylor
