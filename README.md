@@ -30,4 +30,4 @@ Link to be add
 •	Jessica Taylor Allen
 •	Jacob Johnson
 •	Priti Patel
-•	Marsol Ramierz
+•	Marsol Ramirez
