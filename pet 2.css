@@ -1,0 +1,400 @@
+:root {
+    --main-color: #1589d6;
+    --default-dark-grey: #575757;
+    --default-grey: #6b6b6b;
+    --dafault-light-grey: #cfcfcf;
+    --default-white: #ffffff;
+}
+
+/* nav hover */
+nav a {
+    text-decoration: none;
+  }
+  
+nav {
+    margin: 7px 0;
+  }
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: right;
+    list-style: none;
+  }
+
+nav ul li a:hover {
+    background: #444;
+    color: #26a69a;
+    border-radius: 15px;
+    text-shadow: none;
+  }
+
+
+#pastLikesHeader,
+.past-likes {
+    display: flex;
+    padding: 10px;
+}
+
+.past-likes img {
+    margin-right: 10px;
+    display: block;
+}
+
+.past-likes span {
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
+.pet-data {
+    height: 50%;
+    width:100%
+}
+
+.card-title {
+    font-size: 3rem;
+}
+
+.card-subtitle {
+    font-size: 2rem;
+}
+
+.card-text {
+    font-size: 1.75rem;
+}
+
+.delete-button {
+    border-radius: 50%;
+    border: 2px solid var(--dafault-light-grey);
+    color: var(--dafault-light-grey);
+}
+
+.delete-button:hover {
+    color: var(--default-white);
+    background: rgb(255, 115, 115);
+    border: 0px;
+    cursor: pointer;
+}
+
+.past-liked-photo {
+    border-radius: 50%;
+}
+
+.likeAndDislikeBtn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.hideAndSettings {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+#pastLikesDiv > div {
+    color: var(--default-white);
+    border-bottom: 1px solid #cfcfcf;
+    text-decoration: none;
+}
+
+#pastLikesDiv > div a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+#pastLikesDiv > div:last-child {
+    border-bottom: 0px;
+}
+
+#pastLikesDiv > div:hover a,
+#pastLikesDiv > div:active a {
+    color: var(--main-color);
+}
+
+#pastLikesHeader img,
+#pastLikesDiv > a img {
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+    /* border-radius: 50%; */
+}
+
+
+/* #showHideBtn, */
+#dislikeBtn {
+    color: var(--default-grey);
+    border: 1px solid var(--default-grey);
+}
+
+#showModal:hover,
+#showModal:active,
+#likeBtn:hover,
+#likeBtn:active {
+    color: var(--default-white);
+    border: 0px;
+    background-color: var(--main-color);
+}
+
+/* #showHideBtn:hover, */
+/* #showHideBtn:active, */
+#dislikeBtn:hover,
+#dislikeBtn:active {
+    color: var(--default-white);
+    background: var(--default-grey);
+}
+
+/* #petPhoto {
+    border-top-left-radius: 4%;
+    border-top-right-radius: 4%;
+    border-bottom-left-radius: 0%; */
+/* } */
+
+#right-side-of-card {
+    /* border-top-right-radius: 0%;
+    border-bottom-right-radius: 4%;
+    border-bottom-left-radius: 4%; */
+    padding-left: 3vw;
+    background-color: var(--main-color);
+    color: var(--default-white);
+}
+
+#right-side-of-card > div {
+    height: 50%;
+}
+
+#right-side-of-card * {
+    color:var(--default-white)
+}
+
+#pastLikesHeader img,
+.past-liked-photo img {
+    border: 3px solid var(--main-color);
+    padding: 3px;
+    width: 64px;
+    height: 64px;
+    /* border-radius:50%; */
+}
+
+#pastLikesDiv > div > a {
+    color: var(--default-dark-grey);
+}
+
+#pastLikesDiv > div > a:hover,
+#pastLikesDiv > div > a:active {
+    color: var(--main-color);
+}
+
+#pastLikesHeader span {
+    font-size: 2rem;
+    color: var(--main-color);
+}
+
+#pastLikesTitle {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--default-dark-grey);
+}
+
+#scroll-box-holder {
+    overflow: hidden;
+    height: 92vh;
+}
+
+#scroll-box {
+    height: 80vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: top;
+ }
+ 
+ 
+ .contact {
+   background:#26a69a;
+ }
+ 
+ .contact h2 {
+   color: black;
+ }
+ 
+ .contact-info {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+ }
+ 
+ .contact-info > * {
+   flex: 1;
+   margin: 15px;
+ }
+ 
+ .contact-info iframe {
+   height: 400px;
+ }
+ 
+ .contact-info div {
+   color: white;
+ }
+ 
+ .contact-info h3 {
+   color: black;
+   font-size: 32px;
+ }
+ 
+ .contact-info p, .contact-info address {
+   margin: 20px 0;
+   line-height: 1.5;
+   font-size: 16px;
+   font-style: normal;
+ }
+ 
+ .contact-form input, .contact-form textarea {
+   border: 1px solid #9c27b0;
+   display: block;
+   padding: 7px 15px;
+   font-size: 16px;
+   color: #444;
+   width: 100%;
+   margin-bottom: 15px;
+   margin-top: 5px;
+   border-radius: 10px;
+   background-color: rgba(255,255,255, 0.75);
+ }
+ 
+ .contact-form input:focus, .contact-form textarea:focus {
+   background-color: rgba(255,255,255, 1);
+   outline: none;
+ }
+ 
+ .contact-form button {
+   width: 100%;
+   border: none;
+   background: #444;
+   color: #26a69a;
+   text-align: center;
+   padding: 15px 0;
+   font-size: 16px;
+   border-radius: 10px;
+ }
+ 
+ .contact-form button:hover {
+   color: #444;
+   background: #9c27b0;
+ }
+ 
+ .contact-info a {
+   color: var(--primary-color);
+ }
+ 
+ .section-title {
+   font-size: 45px;
+   border-bottom: 3px solid;
+   color: hotpink;
+   padding-bottom: 20px;
+   padding-top: 20px;
+   text-align: center;
+   margin: 0 auto 35px auto;
+   width: 50%;
+ }
+ 
+ #contact-name {
+   border: 1px solid hotpink;
+   display: block;
+   font-size: 16px;
+   color: #444;
+   width: 100%;
+   margin-bottom: 15px;
+   margin-top: 5px;
+   border-radius: 10px;
+   background-color: rgba(255,255,255, 0.75);
+ }
+
+/* secondary styles */
+.hero {
+    background-position: bottom;
+    height: auto;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-title {
+    color: #26a69a;
+    display: inline-block;
+    border-bottom: 4px solid #26a69a;
+    padding: 0 80px 15px 70px;
+    font-weight: normal;
+    font-size: 42px;
+    font-style: italic;
+}
+
+.secondary-content {
+    width: 95%;
+    margin: 0 auto;
+    color: #024e76;
+}
+
+.secondary-content h3 {
+    font-size: 25px;
+    margin: 20px 0;
+}
+
+.secondary-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 20px 0;
+}
+
+.secondary-content ul {
+    margin: 15px 20px;
+}
+
+.secondary-content li {
+    color: #39a6b2;
+    margin: 10px 0;
+}
+
+  /* FOOTER STYLES START */
+  footer {
+    background: #444;
+    color: white;
+    padding: 40px 35px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  footer h2 {
+    color: white;
+    font-size: 30px;
+    margin: 0;
+  }
+  
+  footer div {
+    line-height: 1.5;
+    text-align: center;
+  }
+  
+  footer a {
+    color: blue;
+  }
+
+
+/* @media screen and (min-width: 768px) {
+    #petPhoto {
+        border-top-left-radius: 4%;
+        border-top-right-radius: 0%;
+        border-bottom-left-radius: 4%;
+    } */
+
+    /* #right-side-of-card {
+        border-top-right-radius: 4%;
+        border-bottom-left-radius: 0%;
+    } */
