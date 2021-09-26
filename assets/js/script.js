@@ -54,6 +54,34 @@ var userRange = 50; //miles range 1-500 default:100 (gets bigger if no animals a
 //     }
 // }
 
+// Load Previous Matches
+
+var loadMatch = function() {
+
+    var previousPhoto = localStorage.getItem('Photo');
+    var previousName = localStorage.getItem('Name');
+    var previousAge = localStorage.getItem('Age');
+    var previousGender = localStorage.getItem('Gender');
+
+    $("#pastLikesDiv").append(
+
+        `<ul class="collection">
+        <li class="collection-item avatar">
+          <img src=${previousPhoto} alt="picture of dog" class="circle">
+          <span class="title black-text">${previousName}</span>
+          <p class="black-text">${previousGender}<br>${previousAge}
+          </p>
+          <a href="#!" class="secondary-content"><i class="material-icons right">cancel</i></a>
+          </div class="input-field">
+          <i class="material-icons prefix">book_online</i><label for="appointment">Make an Appointment to Meet</label> 
+        </li>
+        </ul>`
+     )
+
+}
+
+
+
 
 
 ///API REFRESH TOKEN
@@ -112,8 +140,6 @@ var makeCall = function () {
 
 };
 
-
-
 /////////////////////////////////////////////////////////////////
 
 var i = 0;
@@ -125,9 +151,6 @@ var init = function () {
     searchBtnEl.addEventListener('click', makeCall, false);
 
 }
-
-
-
 
 var petGenders = function() {
 
@@ -142,8 +165,6 @@ var petGenders = function() {
     return userGenders;
     
 }
-
-
 
 //Fetch function
 var findDog = function() {
@@ -206,13 +227,17 @@ var likeButton = function() {
       <span class="title black-text">${displayName.textContent}</span>
       <p class="black-text">${displayGender.textContent}<br>${displayAge.textContent}
       </p>
-      <a href="#!" class="secondary-content"><i class="material-icons right">grade</i></a>
+      <a href="#!" class="secondary-content"><i class="material-icons right">cancel</i></a>
       </div class="input-field">
-      <i class="material-icons prefix">book_online</i><label for="appointment">Make an Appointment to Meet</label>
-      <input id="appointment" type="text" class="datepicker" > 
+      <i class="material-icons prefix">book_online</i><label for="appointment">Make an Appointment to Meet</label> 
     </li>
     </ul>`
  )
+    localStorage.setItem('Name', displayName.textContent)
+    localStorage.setItem('Photo', displayPhoto.src)
+    localStorage.setItem('Gender', displayGender.textContent)
+    localStorage.setItem('Age', displayAge.textContent)
+    
         findDog();
  }
 
@@ -236,14 +261,15 @@ const options = {
          console.log(displaySize.textContent)
 }
 
-
 dislikeBtnEl.addEventListener('click', findDog)
 
 var resetForm = function() {
     document.getElementById("cancelBtn").reset();
 }
 
+
 // }
+loadMatch();
 petGenders();
 init();
 makeCall();
