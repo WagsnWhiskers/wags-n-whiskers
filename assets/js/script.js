@@ -54,12 +54,75 @@ var userRange = 50; //miles range 1-500 default:100 (gets bigger if no animals a
 //     }
 // }
 
+
+
+///API REFRESH TOKEN
+////////////////////////////////////////////////////////////////
+
+var token
+var tokenType
+var expires
+
+var getOAuth = function() {
+
+fetch('https://api.petfinder.com/v2/oauth2/token', {
+	method: 'POST',
+	body: 'grant_type=client_credentials&client_id=' + petFinderAPIKey + '&client_secret=' + petFinderSecret,
+	headers: {
+		'Content-Type': 'application/x-www-form-urlencoded'
+	}
+}).then(function (resp) {
+
+	// Return the response as JSON
+	return resp.json();
+
+}).then(function (data) {
+
+	// Log the API data
+	console.log('token', data);
+
+	// Store token data
+	token = data.access_token;
+	tokenType = data.token_type;
+	expires = new Date().getTime() + (data.expires_in * 1000);
+
+}).catch(function (err) {
+
+    // Log any errors
+    console.log('something went wrong', err);
+
+});
+
+}
+
+var makeCall = function () {
+
+	// If current token is invalid, get a new one
+	if (!expires || expires - new Date().getTime() < 1) {
+		console.log('new call');
+		getOAuth().then(function () {
+			findDog();
+		});
+		return;
+	}
+
+	// Otherwise, get pets
+	console.log('from cache');
+	findDog();
+
+};
+
+
+
+/////////////////////////////////////////////////////////////////
+
 var i = 0;
 
 var init = function () {
 
-    searchBtnEl.addEventListener('click', findDog);
-    likeBtnEl.addEventListener('click', likeButton)
+    
+    likeBtnEl.addEventListener('click', likeButton);
+    searchBtnEl.addEventListener('click', makeCall, false);
 
 }
 
@@ -80,19 +143,20 @@ var petGenders = function() {
     
 }
 
-console.log(userCityEl)
+
+
 //Fetch function
 var findDog = function() {
     // event.preventDefault();
     petGenders();
 
-    var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6IjNjYTQwZTkxOWI0MTlmZGNhZjYxYTgzMDc0MWYyMTUzZTVjYjhmZTYyZjRmNjI1MzgzOGJhMGM4MjYyMzE2NTdiZTZhNjlhNTg1YzE0YzdiIiwiaWF0IjoxNjMyNDM5ODc3LCJuYmYiOjE2MzI0Mzk4NzcsImV4cCI6MTYzMjQ0MzQ3Nywic3ViIjoiIiwic2NvcGVzIjpbXX0.bpinnIjTPdp7XWWwSyLIf78VvieCODgDXSZjdIHLvxEZ0asL2mJmvvClP_xPzg1NKI261R5YBUvxM_JXYwgqmVI3dmcACVN7BChrnHomxhvhcU-KMQbi4H2EACTLVUpf_EROiUmHlVXR4xVoxelpdisn95fsll_P05HNzX4CWjALtB5dm8QrW0gsDxxg8Rrm4T4TVGfcH_mxUFShu6i6X3K7xe3u3jCPvm6KTzg0P-c4DyjuaLdXVk5rbbMDWyP2fxlEenTxy9WcC4mqw3_cUtc4oN1K3mqZZ0jdOJ8TO832keg6Xev4vCFUr0PutzzpB-ekb5T3Y1Wtd2vdlAPIbw"
+    console.log(token)
 
 const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value + "&location=" + userCityEl.value + "&size=" + userSizeEl.value + "&gender=" + userGenders
 
 const options = {
     headers: {
-        Authorization: "Bearer " + bearerToken
+        Authorization: "Bearer " + token
     }
 }
 
@@ -180,6 +244,7 @@ dislikeBtnEl.addEventListener('click', findDog)
 // }
 petGenders();
 init();
+makeCall();
 
 
 
