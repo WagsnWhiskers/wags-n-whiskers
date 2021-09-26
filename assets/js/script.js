@@ -239,7 +239,9 @@ const options = {
 
 dislikeBtnEl.addEventListener('click', findDog)
 
-
+var resetForm = function() {
+    document.getElementById("cancelBtn").reset();
+}
 
 // }
 petGenders();
