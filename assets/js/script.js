@@ -47,33 +47,33 @@ var loadMatch = function() {
     var previousGender = localStorage.getItem('Gender');
     var previousAge = localStorage.getItem('Age');
 
-    if(localStorage != null || localStorage != 'null') {
+    // if(localStorage != null || localStorage != 'null') {
 
-    $("#pastLikesDiv").append(
+    // $("#pastLikesDiv").append(
 
-        `<ul class="collection">
-        <li class="collection-item avatar">
-          <img src=${previousPhoto} alt="picture of dog" class="circle">
-          <span class="title black-text">${previousName}</span>
-          <p class="black-text">${previousGender}<br>${previousAge}
-          </p>
+    //     `<ul class="collection">
+    //     <li class="collection-item avatar">
+    //       <img src=${previousPhoto} alt="picture of dog" class="circle">
+    //       <span class="title black-text">${previousName}</span>
+    //       <p class="black-text">${previousGender}<br>${previousAge}
+    //       </p>
 
-          <a class="waves-effect waves-light btn modal-trigger" href="#modal3">Contact</a>
-        <div id="modal3" class="modal">
-            <div class="modal-content black-text">
-                <h4>Contact</h4>
-                <p>Please provide email address and we'll get back to you shortly!</p>
-                <input></input>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
-            </div>
-        </div>
+    //       <a class="waves-effect waves-light btn modal-trigger" href="#modal3">Contact</a>
+    //     <div id="modal3" class="modal">
+    //         <div class="modal-content black-text">
+    //             <h4>Contact</h4>
+    //             <p>Please provide email address and we'll get back to you shortly!</p>
+    //             <input></input>
+    //         </div>
+    //         <div class="modal-footer">
+    //             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+    //         </div>
+    //     </div>
 
-          <a href="#!" class="secondary-content"><button class="material-icons right" id="cancel">cancel</button></a>
-        </li>
-        </ul>`
-     ) } 
+    //       <a href="#!" class="secondary-content"><button class="material-icons right" id="cancel">cancel</button></a>
+    //     </li>
+    //     </ul>`
+    //  ) } 
 }
 
 ///API REFRESH TOKEN
