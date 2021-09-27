@@ -37,28 +37,9 @@ var likeBtnEl = document.getElementById('likeBtn');
 var searchBtnEl = document.getElementById('searchButton');
 var descriptionEl = document.getElementById('petDescription');
 
-//! GLOBAL VARIABLES
-const maxPastLikes = 5; //max amount of likes saved and displayed on past likes tab &&keep low because each save is a single api request
-const animalArrayLength = 20; //amount the api gets per call and the ideal length the pet array should float around
 
-var arrayOfPetsInQueue = []; //array of pets to go through deletes index 0 everytime it goes to next pet
-var currentPetId = 0; //id of currently displayed pet INTEGER
-var userRange = 50; //miles range 1-500 default:100 (gets bigger if no animals are found in area)
 
-// Fetch Request
-// Will need to create a refresh token of some sort // Further Research
-//var bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJSY1hZaDRtRHcyYjdZOHZkdGlrTnFmQXE0RG5sVGpwRlh0dHdHSXhNQlNHUVdCSkJOeCIsImp0aSI6ImQ4Yzg5YTkyMTFiNDAzN2YyY2VhYjFjOTVjMjJhYzQ1ZWFhMmYxNzAxOTE1MzQ5MTg5ZjUzMGY1MTRlZTRkMzIxYjIyMTljYWY2ZmVlNTQ1IiwiaWF0IjoxNjMyNDA1MDU3LCJuYmYiOjE2MzI0MDUwNTcsImV4cCI6MTYzMjQwODY1Nywic3ViIjoiIiwic2NvcGVzIjpbXX0.snru-B25PUa73czoewHI-0-0cYRAwytI1ULjHJji7WgFS2GOBTxuhM84GNz1obg7Ec3_IybO7CkzEY-m_GgDYAwO9DyJbrT_Z-lMlH0g-HMtDS7bk-l6mqm9FaVT2out04rwcpjqExxC6uFuDFYofyVAi5QZ7tJRdDEcUA8dVbHDZttm7LTwQ2gmuBWpJQ2KO3yLWpw1GI_6HL43m0pyDJdn5ODGqeY9g1Jsv4Q53vYqdJ1jcmUSg2HYNMo3LTz7upsvnOemuA8Q62rPUYEezYec48gLshQSPe2puxpIX0LknUoYLc88mFcGdH_NlNfYpPMSayOUWZhjc-j5eoUmZA"
-
-//const url = "https://api.petfinder.com/v2/animals?type=dog&age=" + userAgeEl.value
-
-// const options = {
-//     headers: {
-//         Authorization: "Bearer " + bearerToken
-//     }
-// }
-
-// Load Previous Matches
-
+// Load previously saved matches
 var loadMatch = function() {
     
     var previousName = localStorage.getItem('Name');
@@ -76,7 +57,20 @@ var loadMatch = function() {
           <span class="title black-text">${previousName}</span>
           <p class="black-text">${previousGender}<br>${previousAge}
           </p>
-          <a href="#!" class="secondary-content"><i class="material-icons right" type="button" id="cancel">cancel</i></a>
+
+          <a class="waves-effect waves-light btn modal-trigger" href="#modal3">Contact</a>
+        <div id="modal3" class="modal">
+            <div class="modal-content black-text">
+                <h4>Contact</h4>
+                <p>Please provide email address and we'll get back to you shortly!</p>
+                <input></input>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+            </div>
+        </div>
+
+          <a href="#!" class="secondary-content"><button class="material-icons right" id="cancel">cancel</button></a>
         </li>
         </ul>`
      ) } 
@@ -140,6 +134,8 @@ var makeCall = function () {
 
 /////////////////////////////////////////////////////////////////
 
+// Initialization
+
 var i = 0;
 
 var init = function () {
@@ -164,7 +160,7 @@ var petGenders = function() {
     
 }
 
-//Fetch function
+//Fetch function for the Dog Api
 var findDog = function() {
     event.preventDefault();
     petGenders();
@@ -188,9 +184,11 @@ fetch(url, options)
     
 }
 
+
+//Displays the dogs on screen
 var displayDog = function(data) {
     i++;
-    var animalLength = data.animals.length;
+    
     //foreach(i = 1; i < animalLength; i++){
     //var i = Math.floor(Math.random() * 20) + 1
     console.log(i)
@@ -215,7 +213,8 @@ var displayDog = function(data) {
 }
 
 }
-    
+
+// When the user clicks the like button, it creates a box in the right container
 var likeButton = function() {
 
     console.log(displayName.textContent)
@@ -232,16 +231,26 @@ var likeButton = function() {
         <div id="modal3" class="modal">
             <div class="modal-content black-text">
                 <h4>Contact</h4>
-                <p>Please provide email address and contact info</p>
+                <p>Please provide email address and we'll get back to your shortly!</p>
+                <input></input>
             </div>
             <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
             </div>
         </div>
-      <a href="#!" class="secondary-content" ><i class="material-icons right">cancel</i></a>
+      <a href="#!" class="secondary-content" ><button id="clear" class="material-icons right">cancel</button></a>
     </li>
     </ul>`
  )
+
+    var clear = document.getElementById('clear')
+    clear.onlick = function(){
+        clear.parentElement.remove();
+    }
+
+    $(document).ready(function(){
+        $('#modal3').modal();
+    });
     //localStorage.setItem('Match', JSON.stringify([{"Name": displayName.textContent, "Photo": displayPhoto.src, "Gender": displayGender.textContent, "Age": displayAge.textContent}]))
     
     localStorage.setItem('Name', displayName.textContent);
@@ -267,7 +276,6 @@ var likeButton = function() {
     
  }
  
-
 var dogBreed = function (breed) {
 
 const dogURL = "https://api.thedogapi.com/v1/breeds/search?q=" + breed
@@ -294,6 +302,7 @@ loadMatch();
 petGenders();
 init();
 makeCall();
+cancelMatch();
 
 
 
@@ -301,13 +310,9 @@ makeCall();
 
 
 
-$(document).ready(function(){
-    $('.datepicker').datepicker();
-  });
 
-  $(document).ready(function(){
-    $('.modal').modal();
-  });
+
+ 
 
 
 
