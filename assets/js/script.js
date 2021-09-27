@@ -29,6 +29,8 @@ var displayBreed = document.getElementById('petBreed');
 
 
 //! HTML ELEMENTS
+var cancelBtn = document.getElementById('cancel');
+var deleteMatch = document.getElementById('')
 var dislikeBtnEl = document.getElementById('dislikeBtn');
 var likeBtnEl = document.getElementById('likeBtn');
 var searchBtnEl = document.getElementById('searchButton');
@@ -56,29 +58,34 @@ var userRange = 50; //miles range 1-500 default:100 (gets bigger if no animals a
 
 // Load Previous Matches
 
-var loadMatch = function() {
+// var loadMatch = function() {
 
-    var previousPhoto = localStorage.getItem('Photo');
-    var previousName = localStorage.getItem('Name');
-    var previousAge = localStorage.getItem('Age');
-    var previousGender = localStorage.getItem('Gender');
 
-    $("#pastLikesDiv").append(
+//     var previousName = localStorage.getItem(Match[0].Name);
+//     var previousPhoto = localStorage.getItem('Match')[1];
+//     var previousGender = localStorage.getItem('Match')[2];
+//     var previousAge = localStorage.getItem('Match')[3];
 
-        `<ul class="collection">
-        <li class="collection-item avatar">
-          <img src=${previousPhoto} alt="picture of dog" class="circle">
-          <span class="title black-text">${previousName}</span>
-          <p class="black-text">${previousGender}<br>${previousAge}
-          </p>
-          <a href="#!" class="secondary-content"><i class="material-icons right">cancel</i></a>
-          </div class="input-field">
-          <i class="material-icons prefix">book_online</i><label for="appointment">Make an Appointment to Meet</label> 
-        </li>
-        </ul>`
-     )
+//     if(localStorage !== null) {
 
-}
+//     $("#pastLikesDiv").append(
+
+//         `<ul class="collection">
+//         <li class="collection-item avatar">
+//           <img src=${previousPhoto} alt="picture of dog" class="circle">
+//           <span class="title black-text">${previousName}</span>
+//           <p class="black-text">${previousGender}<br>${previousAge}
+//           </p>
+//           <a href="#!" class="secondary-content"><i class="material-icons right">cancel</i></a>
+//         </li>
+//         </ul>`
+//      )
+//     } else{ return;
+//     }
+
+// }
+
+
 
 
 
@@ -227,17 +234,13 @@ var likeButton = function() {
       <span class="title black-text">${displayName.textContent}</span>
       <p class="black-text">${displayGender.textContent}<br>${displayAge.textContent}
       </p>
-      <a href="#!" class="secondary-content"><i class="material-icons right">cancel</i></a>
-      </div class="input-field">
-      <i class="material-icons prefix">book_online</i><label for="appointment">Make an Appointment to Meet</label> 
+      <a href="#!" class="secondary-content" id="cancel"><i class="material-icons right">cancel</i></a>
     </li>
     </ul>`
  )
-    localStorage.setItem('Name', displayName.textContent)
-    localStorage.setItem('Photo', displayPhoto.src)
-    localStorage.setItem('Gender', displayGender.textContent)
-    localStorage.setItem('Age', displayAge.textContent)
-    
+    localStorage.setItem('Match', JSON.stringify([{"Name": displayName.textContent, "Photo": displayPhoto.src, "Gender": displayGender.textContent, "Age": displayAge.textContent}]))
+
+        cancelMatch();
         findDog();
  }
 
@@ -261,15 +264,25 @@ const options = {
          console.log(displaySize.textContent)
 }
 
-dislikeBtnEl.addEventListener('click', findDog)
+var cancelMatch = function() {
 
-var resetForm = function() {
-    document.getElementById("cancelBtn").reset();
+    $("#cancel").on('click', function() { 
+
+    
+        
+    localStorage.removeItem('Match');
+
+    })
+    
+
 }
 
 
+dislikeBtnEl.addEventListener('click', findDog);
+
+
 // }
-loadMatch();
+//loadMatch();
 petGenders();
 init();
 makeCall();

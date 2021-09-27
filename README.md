@@ -1,7 +1,7 @@
 # Wags-n-Whiskers Pet Adoption Center
 
 # Description: 
-	Our pet adoption website is use for users to find cats and dogs for gadoption. 
+	Our pet adoption website is used to find cats and dogs for adoption. 
     This website shows about our organization information. This project use Petfinder
     and the dog finder API. User can search dogs and cat by age, size, gender, and 
     location around 50 miles radius of selected city. Search result will display name,
