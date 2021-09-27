@@ -29,6 +29,10 @@ p {
     width: 100%;
   }
 
+  .gray {
+    background-color: #444 !important;
+  }
+
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
