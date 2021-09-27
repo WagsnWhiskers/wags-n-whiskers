@@ -30,6 +30,8 @@
 
 ### Demo
 ![alt="site"](./assets/images/DemoScreenshot.png)
+Most Recent ⬇️
+![alt="site"](./assets/images/index.png)
 
 ## Deployed-Link 🔗
 https://wagsnwhiskers.github.io/wags-n-whiskers/
