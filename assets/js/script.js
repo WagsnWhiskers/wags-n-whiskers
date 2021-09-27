@@ -29,6 +29,7 @@ var displayBreed = document.getElementById('petBreed');
 
 
 //! HTML ELEMENTS
+var pastLikes = document.getElementById('pastLikesDiv')
 var cancelBtn = document.getElementById('cancel');
 var deleteMatch = document.getElementById('')
 var dislikeBtnEl = document.getElementById('dislikeBtn');
@@ -58,38 +59,28 @@ var userRange = 50; //miles range 1-500 default:100 (gets bigger if no animals a
 
 // Load Previous Matches
 
-// var loadMatch = function() {
+var loadMatch = function() {
+    
+    var previousName = localStorage.getItem('Name');
+    var previousPhoto = localStorage.getItem('Photo');
+    var previousGender = localStorage.getItem('Gender');
+    var previousAge = localStorage.getItem('Age');
 
+    if(localStorage != null || localStorage != 'null') {
 
-//     var previousName = localStorage.getItem(Match[0].Name);
-//     var previousPhoto = localStorage.getItem('Match')[1];
-//     var previousGender = localStorage.getItem('Match')[2];
-//     var previousAge = localStorage.getItem('Match')[3];
+    $("#pastLikesDiv").append(
 
-//     if(localStorage !== null) {
-
-//     $("#pastLikesDiv").append(
-
-//         `<ul class="collection">
-//         <li class="collection-item avatar">
-//           <img src=${previousPhoto} alt="picture of dog" class="circle">
-//           <span class="title black-text">${previousName}</span>
-//           <p class="black-text">${previousGender}<br>${previousAge}
-//           </p>
-//           <a href="#!" class="secondary-content"><i class="material-icons right">cancel</i></a>
-//         </li>
-//         </ul>`
-//      )
-//     } else{ return;
-//     }
-
-// }
-
-
-
-
-
-
+        `<ul class="collection">
+        <li class="collection-item avatar">
+          <img src=${previousPhoto} alt="picture of dog" class="circle">
+          <span class="title black-text">${previousName}</span>
+          <p class="black-text">${previousGender}<br>${previousAge}
+          </p>
+          <a href="#!" class="secondary-content"><i class="material-icons right" type="button" id="cancel">cancel</i></a>
+        </li>
+        </ul>`
+     ) } 
+}
 
 ///API REFRESH TOKEN
 ////////////////////////////////////////////////////////////////
@@ -175,7 +166,7 @@ var petGenders = function() {
 
 //Fetch function
 var findDog = function() {
-    // event.preventDefault();
+    event.preventDefault();
     petGenders();
 
     console.log(token)
@@ -221,7 +212,9 @@ var displayDog = function(data) {
 } else{
     findDog();
     
-}}
+}
+
+}
     
 var likeButton = function() {
 
@@ -229,21 +222,50 @@ var likeButton = function() {
  $("#pastLikesDiv").append(
 
     `<ul class="collection">
-    <li class="collection-item avatar">
+    <li class="collection-item avatar" id="cancel">
       <img src=${displayPhoto.src} alt="picture of dog" class="circle">
       <span class="title black-text">${displayName.textContent}</span>
       <p class="black-text">${displayGender.textContent}<br>${displayAge.textContent}
       </p>
-      <a href="#!" class="secondary-content" id="cancel"><i class="material-icons right">cancel</i></a>
+      
+      <a class="waves-effect waves-light btn modal-trigger" href="#modal3">Contact</a>
+        <div id="modal3" class="modal">
+            <div class="modal-content black-text">
+                <h4>Contact</h4>
+                <p>Please provide email address and contact info</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+      <a href="#!" class="secondary-content" ><i class="material-icons right">cancel</i></a>
     </li>
     </ul>`
  )
-    localStorage.setItem('Match', JSON.stringify([{"Name": displayName.textContent, "Photo": displayPhoto.src, "Gender": displayGender.textContent, "Age": displayAge.textContent}]))
+    //localStorage.setItem('Match', JSON.stringify([{"Name": displayName.textContent, "Photo": displayPhoto.src, "Gender": displayGender.textContent, "Age": displayAge.textContent}]))
+    
+    localStorage.setItem('Name', displayName.textContent);
+    localStorage.setItem('Photo', displayPhoto.src);
+    localStorage.setItem("Age", displayAge.textContent);
+    localStorage.setItem("Gender", displayGender.textContent);
+    
 
-        cancelMatch();
+        
         findDog();
+        cancelMatch();
  }
 
+ var cancelMatch = function() {
+
+    var clearMatch = document.getElementById('cancel');
+    clearMatch.addEventListener('click', function () {
+
+        localStorage.removeItem('Gender')
+
+    })
+
+    
+ }
  
 
 var dogBreed = function (breed) {
@@ -264,28 +286,15 @@ const options = {
          console.log(displaySize.textContent)
 }
 
-var cancelMatch = function() {
-
-    $("#cancel").on('click', function() { 
-
-    
-        
-    localStorage.removeItem('Match');
-
-    })
-    
-
-}
-
-
 dislikeBtnEl.addEventListener('click', findDog);
 
 
-// }
-//loadMatch();
+
+loadMatch();
 petGenders();
 init();
 makeCall();
+
 
 
 
@@ -296,6 +305,9 @@ $(document).ready(function(){
     $('.datepicker').datepicker();
   });
 
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
 
 
 

@@ -8,3 +8,11 @@
     overflow-y: scroll;
     overflow-x: hidden;
 } */
+
+#pastLikesDiv {
+    display:block;
+}
+
+.pastLikesHidden {
+    display: none;
+}
