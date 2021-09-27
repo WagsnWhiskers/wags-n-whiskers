@@ -29,7 +29,7 @@
 - [X] Dog finder API
 
 ### Demo
-Link to be add
+![alt="site"](./assets/images/DemoScreenshot.png)
 
 ## Deployed-Link 🔗
 https://wagsnwhiskers.github.io/wags-n-whiskers/
