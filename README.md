@@ -45,3 +45,8 @@ https://github.com/WagsnWhiskers
 
 ### Resources 🤝
 
+- [Materialize](https://materializecss.com/)
+- [YouTube-TheNetNinja](https://www.youtube.com/c/TheNetNinja/featured)
+- [PetFinderAPI](https://www.petfinder.com/developers/v2/docs/)
+- [TheDogAPI](https://www.thedogapi.com/)
+
