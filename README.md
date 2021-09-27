@@ -1,5 +1,7 @@
 # Wags 'N Whiskers Pet Adoption Center
-![alt="site"] (./assets/images/pos-logo (2).jpg)
+![alt="site"](./assets/images/WnW-logo.jpg)
+
+
 ### User Story
 > AS A potential pet adopter
 > I WANT to see potential pet profiles
@@ -23,8 +25,8 @@
 
 
 ### Third-Party API 
-•	Petfinder API
-•	Dog finder API
+- [X] Petfinder API
+- [X] Dog finder API
 
 ### Demo
 Link to be add
