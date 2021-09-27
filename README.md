@@ -1,8 +1,8 @@
-# Wags 'N Whiskers Pet Adoption Center
+# Wags 'N Whiskers Pet Adoption Center 🐾
 ![alt="site"](./assets/images/WnW-logo.jpg)
 
 
-### User Story
+### User Story 📖
 > AS A potential pet adopter
 > I WANT to see potential pet profiles
 > SO THAT I can schedule a meet and greet for adoption. 
@@ -31,10 +31,11 @@
 ### Demo
 Link to be add
 
-## Deployed-Link
+## Deployed-Link 🔗
+https://wagsnwhiskers.github.io/wags-n-whiskers/
 
-## Developer-Link
-
+## Developer-Link 🔗
+https://github.com/WagsnWhiskers
 
 ### Contribution
 •	Jessica Taylor Allen
@@ -43,3 +44,4 @@ Link to be add
 •	Marsol Ramirez
 
 ### Resources 🤝
+
