@@ -220,8 +220,7 @@ var likeButton = function() {
     console.log(displayName.textContent)
  $("#pastLikesDiv").append(
 
-    `<ul class="collection">
-    <li class="collection-item avatar" id="cancel">
+    `<li class="collection-item avatar li" id="cancel">
       <img src=${displayPhoto.src} alt="picture of dog" class="circle">
       <span class="title black-text">${displayName.textContent}</span>
       <p class="black-text">${displayGender.textContent}<br>${displayAge.textContent}
@@ -238,15 +237,17 @@ var likeButton = function() {
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
             </div>
         </div>
-      <a href="#!" class="secondary-content" ><button id="clear" class="material-icons right">cancel</button></a>
-    </li>
-    </ul>`
+        <a href="#!" class="secondary-content" ><i id="clear" onClick="removeLi()" class="material-icons right">cancel</i></a>
+        
+    </li>`
  )
+   
+    // made the DisplayName a unique data-id("123")
 
-    var clear = document.getElementById('clear')
-    clear.onlick = function(){
-        clear.parentElement.remove();
-    }
+    // var clear = document.getElementById('clear')
+    // clear.onclick = function(){
+    //     ;
+    // }
 
     $(document).ready(function(){
         $('#modal3').modal();
@@ -263,6 +264,12 @@ var likeButton = function() {
         findDog();
         cancelMatch();
  }
+
+
+ var removeLi = function() {
+    $("#clear").closest('.li').remove();
+console.log("something here")
+}
 
  var cancelMatch = function() {
 
