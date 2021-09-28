@@ -244,9 +244,11 @@ var likeButton = function() {
  )
 
     var clear = document.getElementById('clear')
-    clear.onlick = function(){
+    clear.onclick = function(){
         clear.parentElement.remove();
+
     }
+
 
     $(document).ready(function(){
         $('#modal3').modal();
